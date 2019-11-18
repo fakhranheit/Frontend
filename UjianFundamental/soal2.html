@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        tr,td,table{
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+
+        <h1>Madding</h1>
+        <div>
+            
+            <input id="idLogin" type="text"><br><br>
+            <input id="pass" type="password"><br><br>
+            <button onclick="login()">Login</button><br><br>
+
+        </div>
+
+        <table>
+                        <thead>
+                            <tr>
+                                <td>NO</td>
+                                <td>TODO</td>
+                                <td>HARI</td>  
+                                <td>Gambar</td>
+                                <td>ACT</td>  
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+        <tfoot>
+
+        </tfoot>
+        </table>
+        <h2></h2>
+        <p id="tombolLogout"></p>
+    </center>
+</body>
+<script>
+class User{
+    constructor(a,b,c){
+        this.username=a,
+        this.password=b,
+        this.role=c
+    }
+}
+var listUser=[
+    new User('fak','12','user'),
+    new User('admin','123','admin'),
+]
+
+class Todo{
+        constructor(a,b,c){
+            this.kegiatan=a,
+            this.hari=b,
+            this.gambar=c   
+        }
+    }
+    var listdata=[
+        new Todo('Mancing','Senin',''),
+        new Todo('Tidur','Selasa',''),
+        new Todo('Kondangan','Jumat','')
+    ]
+
+const login=()=>{
+    var username=document.getElementById('idLogin').value
+    var pass=document.getElementById('pass').value
+    
+    var arrbaru=listUser.filter((val)=>val.username==username&&val.password==pass) //val.username=fakhran dan admin  ||| val.password=12 dan 123
+    datauserlogin=arrbaru[0]
+   
+    // if dimulai
+    if(datauserlogin){
+
+        
+
+            if(datauserlogin.role=='admin'){
+                // alert('halo admin')
+                PrintdataAdmin(listdata)
+                document.getElementById('tombolLogout').innerHTML=`<button onclick="logout()">logout</button>`
+                document.getElementsByTagName('h2')[0].innerHTML=`selamat datang ${datauserlogin.username}`
+            }else{
+                // alert('halo member')
+                Printdata(listdata)
+                document.getElementById('tombolLogout').innerHTML=`<button onclick="logout()">logout</button>`
+                document.getElementsByTagName('h2')[0].innerHTML=`selamat datang ${datauserlogin.username}`
+            }
+     
+    }else{
+        alert('user tidak ditemukan atau password salah')
+  
+    }
+    //if selesai
+}
+
+
+
+//function
+
+const PrintdataAdmin=(a)=>{
+        var output=''
+        a.forEach((val,index)=>{
+            output+=`<tr>
+                        <td>${index+1}</td>
+                        <td>${val.kegiatan}</td>
+                        <td>${val.hari}</td>
+                        <td><img src=${val.gambar} height='100px'/></td>
+                        <td>
+                            <button onclick="deleteIsi(${index})">delete</button>
+                            <button onclick="onClickEdit(${index})">edit</button>
+                        </td>
+                        </tr>
+                    `
+        });
+
+        var tambah=`<tr>
+                    <td></td>
+                    <td><input type="text" class="addtodo"/></td>
+                    <td>
+                            <select class="addtodo">
+                                <option>Senin</option>
+                                <option>Selasa</option>
+                                <option>Rabu</option>
+                                <option>Kamis</option>
+                                <option>Jumat</option>
+                                <option>Sabtu</option>
+                                <option>Minggu</option>
+                            </select>
+                    </td>
+                    <td><input type="text" class="addtodo"></td>
+                    <td> <button onclick="onAddTodoClick()">add</button></td>
+                </tr>`
+
+        document.getElementsByTagName('tfoot')[0].innerHTML=tambah
+        document.getElementsByTagName('tbody')[0].innerHTML=output
+    }
+    
+const Printdata=(a)=>{
+        var output=''
+        a.forEach((val,index)=>{
+            output+=`<tr>
+                
+
+                        <td>${index+1}</td>
+                        <td>${val.kegiatan}</td>
+                        <td>${val.hari}</td>
+                        <td><img src=${val.gambar} height='100px'/></td>
+                        </tr>`
+                   
+        });
+        document.getElementsByTagName('tbody')[0].innerHTML=output
+    }
+
+const logout=()=>{
+    var keluar=confirm('apakah anda yakin ingin keluar?')
+    while(keluar){
+    datauserlogin={}
+    document.getElementsByTagName('tr')[0].innerHTML=``
+    document.getElementsByTagName('tr')[1].innerHTML=``
+    document.getElementsByTagName('h2')[0].innerHTML=``
+    document.getElementsByTagName('p')[0].innerHTML=``
+    document.getElementsByTagName('tfoot')[0].innerHTML=``
+    document.getElementsByTagName('table')[0].innerHTML=`<thead>
+                            <tr>
+                                <td>NO</td>
+                                <td>TODO</td>
+                                <td>HARI</td>  
+                                <td>Gambar</td>
+                                <td>ACT</td>  
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+        <tfoot>
+
+        </tfoot>`
+
+    // Printdata(listdata)
+  
+    break
+    }
+}
+    
+const deleteIsi=(a)=>{
+
+listdata.splice(a,1)
+PrintdataAdmin(listdata)
+}
+
+const onClickEdit=(a)=>{
+var kbaru=prompt('masukkan nama kegiatan baru')
+var hbaru=prompt('masukkan hari baru')
+var fbaru=prompt('masukkan foto baru')
+var konfirmedit=confirm(`apakah anda ingin mengganti ${listdata[a].kegiatan} dengan ${kbaru}, ${listdata[a].hari} dengan ${hbaru} dan mengganti foto ? `)
+
+if(konfirmedit){
+    listdata[a].kegiatan=kbaru
+    listdata[a].hari=hbaru
+    listdata[a].gambar=fbaru
+}
+else{
+    alert('data tidak jadi diganti')
+    PrintdataAdmin(listdata)}
+
+    PrintdataAdmin(listdata)
+
+}
+
+const onAddTodoClick=()=>{
+        var coba=document.getElementsByClassName('addtodo')
+        var todobaru=coba[0].value
+        var haribaru=coba[1].value
+        var imagebaru=coba[2].value
+        listdata.push(new Todo(todobaru,haribaru,imagebaru))
+        PrintdataAdmin(listdata)
+    }
+</script>
+</html>

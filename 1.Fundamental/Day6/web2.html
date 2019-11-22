@@ -1,0 +1,148 @@
+<html>
+    <script>
+        function segitigabesaralasbawah(tinggi){
+            let z=' '
+            for(a=0;a<tinggi;a++){
+                for(b=a;b<tinggi-1;b++){
+                    z+=' '
+                }
+                for(c=0;c<=a;c++){
+                    z+='*'
+                }
+                for(d=0;d<=a-1;d++){
+                    z+='*'
+                }
+                if(a<tinggi-1){
+                    z+='\n'
+                }
+            }
+        return z
+        }
+
+        function segitigabesaralasatas(tinggi){
+            let z=' '
+            for(let a=0;a<tinggi;a++){
+                for(let b=0;b<a;b++){
+                    z+='-'
+                }
+                for(let c=a;c<tinggi;c++){
+                    z+='*'
+                }
+                if(a<tinggi-1){
+                    z+='\n'
+                }
+            }
+            return z    
+        }
+        
+        function segitigasiku2alasbawah(tinggi){
+            let output=' '
+            for(i=0;i<tinggi;i++){
+                for(j=0;j<i;j++){
+                    output+='*'
+                }
+                output+='*'
+            }
+            return output
+        }
+
+        function segitigasiku2alasatas(tinggi){
+            let z=' '
+            for(let i=0;i<tinggi;i++){
+                for(let j=i;j<tinggi;j++){
+                    z+='*'
+                }
+                if(i<=tinggi){
+                    z+='\n'
+                }
+            }
+            return z
+        }
+        alert('Selamat datang di Website Kami')
+        var konfirmasiutama=true
+    while(konfirmasiutama=true)
+{
+        
+        var menuutama=prompt('Menu\n1.Belajar \n2.Belanja\n3.Segitiga Bintang\n4.keluar')
+        if (menuutama==1){
+        var konfirmasi1=true
+        while(konfirmasi1=true){
+        var menubelajar=prompt('Belajar apa? \n1.Luas Segitiga\n2.Luas Persegi\n3.Volume Balok')
+
+                if(menubelajar==1)
+                {
+                    var alassegitiga=parseInt(prompt('masukkan nilai Alas'))
+                    var tinggisegitiga=parseInt(prompt('masukkan nilai tinggi'))
+                    alert('Luas segitiga adalah'+(0.5*alassegitiga*tinggisegitiga))
+                }
+                else if(menubelajar==2)
+                {
+                    var sisi=parseInt(prompt('masukkan nilai sisi'))
+                    alert('Luas persegi adalah'+(sisi*sisi)+'cm^2')
+                }
+                else if(menubelajar==3)
+                    {
+                    var panjangbalok=parseInt(prompt('masukkan panjang balok'))
+                    var lebarbalok=parseInt(prompt('masukkan lebar balok'))
+                    var tinggibalok=parseInt(prompt('masukkan tinggi balok'))
+                    alert('Volume balok adalah'+(panjangbalok*lebarbalok*tinggibalok+'cm^3'))
+                    }
+            konfirmasi1=confirm('ingin belajar lagi?')
+            }
+            konfirmasiutama=confirm('kembali ke menu utama?')
+        }
+        else if(menuutama==2){
+            var konfirmasi2=true
+            var totalbelanja=0
+            while(konfirmasi2){
+                var listbarang=prompt('Menu Belanja:\n1.Ayam(Rp.10000)\n2.Salmon(Rp.20000),\n3.Kalkun(Rp.30000)')
+                var harga=0
+                if(listbarang==1){
+                    harga=10000
+                }
+                else if(listbarang==2){
+                    harga=20000
+                }
+                else if(listbarang==3){
+                    harga=30000
+                }
+                var qty=parseInt(prompt('Beli berapa kilo?'))
+                totalbelanja+=(qty*harga)
+                konfirmasi2=confirm('apakah anda mau beli lagi?')
+            }
+            if (totalbelanja){
+                alert('Saat ini, total belanja anda Rp.'+totalbelanja)
+            }
+            else{
+                alert('total belanja anda sebesar Rp.'+totalbelanja)
+            }
+        }
+        else if (menuutama==3){
+            
+                var mmenusegitigabintang=prompt('jenis segitiga? \n1.Siku2\n2.Samakaki')
+                if (mmenusegitigabintang==1){
+                    var atasbawah=prompt('pilih alasnya:\n1.atas\n2.bawah')
+                    var tinggibintang=parseInt(prompt('masukkan tinggi'))
+                    if(atasbawah==1){
+                        alert(segitigasiku2alasatas(tinggibintang))
+                    }
+                    else{
+                        alert(segitigasiku2alasbawah(tinggibintang))
+                    }
+                }
+                else if(mmenusegitigabintang==2){
+                    var atasbawah=prompt('pilih alasnya:\n1.atas\n2.bawah')
+                    var tinggibintang=parseInt(prompt('masukkan tinggi'))
+                    if(atasbawah==1){
+                        alert(segitigabesaralasatas(tinggibintang))
+                    }
+                    else{
+                        alert(segitigabesaralasbawah(tinggibintang))
+                    }
+                }
+            
+        }
+    }
+    
+    </script>
+</html>

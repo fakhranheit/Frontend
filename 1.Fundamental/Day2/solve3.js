@@ -1,0 +1,1 @@
+console.log('akar dari 8 adalah '+Math.cbrt(8))

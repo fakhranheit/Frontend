@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To do list</title>
+    <style>
+    tr,td,table{
+        border: 5px solid lightcoral;
+        border-collapse: collapse;
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Latihan Array of Object</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td>NO</td>
+                    <td>TODO</td>
+                    <td>HARI</td>  
+                    <td>Gambar</td>
+                    <td>ACT</td>  
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td><input oninput="onBtnSearch()"type="text" class="searchtodo"></td>
+                    <td>
+                        <select oninput="onBtnSearchClick()" class="searchtodo">
+                            <option>Allday</option>
+                            <option>Senin</option>
+                            <option>Selasa</option>
+                            <option>Rabu</option>
+                            <option>Kamis</option>
+                            <option>Jumat</option>
+                            <option>Sabtu</option>
+                            <option>Minggu</option>
+                        </select>
+                    </td>
+                    <td><button onclick="onBtnClick()"></button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input type="text" class="addtodo"/></td>
+                    <td>
+                            <select class="addtodo">
+                                <option>Senin</option>
+                                <option>Selasa</option>
+                                <option>Rabu</option>
+                                <option>Kamis</option>
+                                <option>Jumat</option>
+                                <option>Sabtu</option>
+                                <option>Minggu</option>
+                            </select>
+                    </td>
+                    <td><input type="text" class="addtodo"></td>
+                    <td> <button onclick="onAddTodoClick()">add</button></td>
+                </tr>
+            </tfoot>
+                
+        </table>
+    </center>
+    
+</body>
+<script>
+    class Todo{
+        constructor(a,b,c){
+            this.kegiatan=a,
+            this.hari=b,
+            this.gambar=c   
+        }
+    }
+    var listdata=[
+        new Todo('Mancing','Senin',''),
+        new Todo('Tidur','Selasa',''),
+        new Todo('Kondangan','Jumat','')
+    ]
+    const Printdata=(a)=>{
+        var output=''
+        a.forEach((val,index)=>{
+            output+=`<tr>
+                        <td>${index+1}</td>
+                        <td>${val.kegiatan}</td>
+                        <td>${val.hari}</td>
+                        <td><img src=${val.gambar} height='100px'/></td>
+                        <td>
+                            <button onclick="onClickDelete(${index})">delete</button>
+                            <button onclick="onClickEdit(${index})">edit</button>
+                        </td>
+                        </tr>`
+        });
+        document.getElementsByTagName('tbody')[0].innerHTML=output
+    }
+    Printdata(listdata)
+    const onAddTodoClick=()=>{
+        var coba=document.getElementsByClassName('addtodo')
+        var todobaru=coba[0].value
+        var haribaru=coba[1].value
+        var imagebaru=coba[2].value
+        listdata.push(new Todo(todobaru,haribaru,imagebaru))
+        Printdata(listdata)
+    }
+    
+    const onClickDelete=(a)=>{
+
+        listdata.splice(a,1)
+        Printdata(listdata)
+    }
+    
+    const onClickEdit=(a)=>{
+        var kbaru=prompt('masukkan nama kegiatan baru')
+        var hbaru=prompt('masukkan hari baru')
+        var fbaru=prompt('masukkan foto baru')
+        var konfirmedit=confirm(`apakah anda ingin mengganti ${listdata[a].kegiatan} dengan ${kbaru}, ${listdata[a].hari} dengan ${hbaru} dan mengganti foto ? `)
+
+        if(konfirmedit){
+            listdata[a].kegiatan=kbaru
+            listdata[a].hari=hbaru
+            listdata[a].gambar=fbaru
+        }
+        else{
+            alert('data tidak jadi diganti')
+            Printdata(listdata)}
+       
+            Printdata(listdata)
+
+    }
+        
+</script>
+</html>

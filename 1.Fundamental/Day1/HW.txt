@@ -1,0 +1,16 @@
+buat file html dengan
+
+prompt
+- nama
+- tahun sekarang-tahun lahir
+- warna baju
+- alamat
+alert
+- nama saya (nama)
+- tampilkan usia = tahun sekarang-tahun lahir
+- tampilkan warna baju
+
+TAMPILKAN DI CONSOLE
+
+kirim ke Aldinorahman36@gmail.com
+Deadline Selasa 22 okt jam 11 siang

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Login & Register</h1>
+        Username: <input type="text" id="subjek1" /> <br><br>
+        Password: <input type="password" id="subjek2"/> <br><br>
+        <button onclick="register()">Register</button> <button onclick="login()">Login</button>
+        <h1></h1>
+        <h1></h1>
+        <p></p>
+    </center>
+</body>
+<script>
+class User{
+    constructor(a,b,c){
+        this.username=a,
+        this.password=b,
+        this.role=c
+    }
+}
+var listUser=[
+    new User('dino','12','user'),
+    new User('admin','123','admin'),
+]
+var datauserlogin={}
+
+const login=()=>{
+    var username=document.getElementById('subjek1').value
+    var pass=document.getElementById('subjek2').value
+  
+    var arrbaru=listUser.filter((val)=>val.username==username&&val.password==pass) //val.username=dino dan admin  ||| val.password=12 dan 123
+    datauserlogin=arrbaru[0]
+    // console.log(arrbaru[0])
+   
+    
+    if(datauserlogin){
+
+        document.getElementsByTagName('h1')[1].innerHTML=datauserlogin.username
+
+            if(datauserlogin.role=='admin'){
+                document.getElementsByTagName('h1')[2].innerHTML='Sebagai admin kece'
+            }else{
+                document.getElementsByTagName('h1')[2].innerHTML='sebagai user unyu'
+            }
+        document.getElementsByTagName('p')[0].innerHTML=`<button onclick="logoutuser()"> logout</button>`
+            
+    }else{
+        document.getElementsByTagName('h1')[1].innerHTML='user tidak ditemukan atau password salah'
+        document.getElementsByTagName('h1')[2].innerHTML=''
+        document.getElementsByTagName('p')[0].innerHTML=``
+    }
+}
+const logoutuser=()=>{
+    datauserlogin={}
+    document.getElementsByTagName('h1')[1].innerHTML=''
+    document.getElementsByTagName('h1')[2].innerHTML=''
+    document.getElementsByTagName('p')[0].innerHTML=``
+}
+const register=()=>{
+    var username=document.getElementById('subjek1').value
+    var pass=document.getElementById('subjek2').value
+    listUser.push(new User(username,pass,'user'))
+    document.getElementsByTagName('h1')[1].innerHTML='berhasil register'
+}
+
+</script>
+</html>

@@ -1,0 +1,157 @@
+<html>
+    <script>
+
+// //================SOLVE IT 10 PPT 4============================================================================
+// var angka = prompt ('Tentukan nilai yang anda inginkan') // //tentukan angka dari sebuah prompt. Dimana angka tersebut adalah sebuah variable
+//     if(angka%2===1){ // //buat sebuah kondisi
+//         alert('Angka ' + angka+ ' adalah bilangan ganjil') // //jika kondisi itu sesuai, muncullah sebuah alert
+//     }
+//     else{ // //buat sebuah pengecualian
+//         alert('Angka ' + angka+ ' adalah bilangan genap')
+//     }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// //=============LATIHAN MENGHITUNG PARKIR=======================================================================
+// while (true) { // //looping pertama. Membuat sebuah kondisi yang akan berjalan jika true
+//         var masuk=parseInt(prompt('Masuk parkir jam berapa?'))
+//         if(masuk>0&&masuk<=12){ // //buat kondisi penulisan yang mengharuskan input dari angka 0 sampai 12
+//             // konfirmasi=false
+//             break
+//         }else{
+//             alert('Salah Input Jam Masuk') // //buat alert jika salah
+//         }
+//     }
+//     do { // //melakukan looping berikutnya jika kondisi diatas sudah benar
+//         var konfirmasimasuk=true // //buat sebuah confirmation pertama dengan isi true
+//         var kondisi1=prompt('1.AM\n2.PM') // //membuat 2 pilihan
+//         if (kondisi1==1||kondisi1==2) { // //buat sebuah kondisi dimana user harus input 2 pilihan (1 atau 2)
+//             konfirmasimasuk=false // //jika salah akan muncul alert
+//         } else {
+//             alert('Salah Input Durasi Masuk') // //jika salah akan muncul alert
+//         }
+//     } while (konfirmasimasuk)
+
+// while (true) { // //buat looping berikutnya
+//         var keluar=parseInt(prompt('Keluar parkiran jam berapa?'))
+//         if(keluar>0&&keluar<=12){ // //buat kondisi penulisan yang mengharuskan input dari angka 0 sampai 12
+//             break
+//         }else{
+//             alert('Salah Input Jam Keluar') // //buat alert jika salah
+//         }
+//     }
+//     do { // //melakukan looping berikutnya jika kondisi diatas sudah benar
+//         var konfirmasikeluar=true // //buat sebuah confirmation kedua dengan isi true
+//         var kondisi2=prompt('1.AM\n2.PM') // //membuat 2 pilihan
+//         if (kondisi2==1||kondisi2==2) { // //buat sebuah kondisi dimana user harus input 2 pilihan (1 atau 2)
+//             konfirmasikeluar=false // //jika salah akan muncul alert
+//         } else {
+//             alert('Salah Input Durasi Keluar') // //jika salah akan muncul alert
+//         }
+//     } while (konfirmasikeluar)
+
+// if(masuk>=keluar && kondisi1!==kondisi2){ // //buat sebuah kondisi jika jam masuk lebih besar dari jam keluar. Dan kondisi durasi jam masuk dan keluar berbeda
+//         keluar+=12 // //maka jam keluar ditambah 12 (parkir pagi ke malam)
+//     }
+// else if(kondisi1==kondisi2 && masuk>=keluar){ // //buat kondisi jika durasi jam masuk dan keluar sama. Sementara jam masuk lebih besar atau sama dengan jam keluar
+//         keluar+=24 // //maka jam keluar ditambah 24 (parkir 24 jam)
+//     }
+
+// var lamaparkir=keluar-masuk // //menentukan durasi parkir
+// var biaya=0 // //buat variable biaya dengan angka awal 0 (agar tidak bertambah nilainya)
+// if(lamaparkir<2){ // //jika lama parkir dibawah 2 jam, maka biaya pertamanya 3000
+//         biaya=3000
+//     }
+// else{ // //jika lebih dari 2 jam, maka per jam nya ialah 1000 ditambah 3000 (2 jam pertama)
+//         biaya=((lamaparkir-1)*1000)+3000
+//     }
+// alert('Anda parkir selama '+ lamaparkir + ' jam' + '\nDan biaya anda sebesar Rp. '+ biaya)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// //==============LATIHAN MENENTUKAN PROFESI BERDASARKAN CIRI CIRI================================================
+// var baju=prompt('Warna baju? \n1.Putih\n2.Lain-Lain') // //buat prompt dengan beberapa pilihan
+// var celana=prompt('Warna celana? \n1.Merah\n2.Biru\n3.Abu-Abu') // //buat prompt kedua dengan beberapa pilihan
+//     if(baju==1 && celana==1){ // //buat sebuah kondisi pemilihan
+//         alert('Kamu anak SD') // //jika kondisi yang ditulis sesuai, maka akan muncul alert
+//     }
+//     else if(baju==1 && celana==2){ // //buat kondisi kedua, dst
+//         alert('Kamu anak SMP')
+//     }
+//     else if(baju==1 && celana==3){
+//         alert('Kamu anak SMA')
+//     }
+//     else{ // //buat kondisi akhir, jika kondisi sebelumnya tidak ada yang sesuai
+//         alert('Tidak terdefinsikan')
+//     }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+// //==============SOLVE IT 13 PPT 4===============================================================================
+// var massa = parseInt(prompt("Berat badan anda? (dalam satuan kg)")) // //buat prompt untuk mengambil sebuah value
+// var tinggi = parseInt(prompt("Berapa tinggi anda? (dalam satuan cm)"))
+//     tinggi/=100 // //buat tinggi ke satuan meter
+//     var IMT = massa/(tinggi*tinggi) // //buat sebuah operasi untuk menentukan nilai akhir
+//         if (IMT<=18.5){ // //jika kondisi yang ditulis sesuai, maka akan muncul alert
+//             alert('Berat Badan Kurang')
+//         }
+//         else if (IMT >=18.5 && IMT <=24.9){
+//             alert('Berat Badan Ideal')
+//         }
+//         else if (IMT >=25.0 && IMT <=29.9){
+//             alert('Berat Badan Berlebih')
+//         }
+//         else if (IMT >=30.0 && IMT <=39.9){
+//             alert('Berat Badan Sangat Berlebih')
+//         }
+//         else { // //buat kondisi akhir, jika kondisi sebelumnya tidak ada yang sesuai
+//             alert('Berat Badan Obesitas')
+        // }
+        
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// //============LATIHAN BELANJA SEDERHANA=========================================================================
+// var konfirmasi=true // //buat variable untuk sebuah confirmation (true/false)
+// while(konfirmasi==true){ // //akan berjalan jika kondisi yang dipilih: true
+//     var hargasatuan=0 // //buat harga awal agar nilai akhirtidak bertambah
+//     var belanja=prompt('Mau belanja apa?\n1.Anggur Rp.5000\n2.Apel Rp.10000\n3.Nanas Rp.2000\n4.Durian Rp.30000')
+//     if(belanja){
+//         if(belanja==1){ // //jika kondisi yang dipilih nomor 1, maka akan masuk ke looping ini
+//             hargasatuan=5000 // //per opsi belanja, memiliki variable harga masing masing
+//             var berat=parseInt(prompt('Mau beli berapa?')) // //buat variable baru
+//             alert('Anda harus bayar '+(hargasatuan*berat)) // //buat alert hasil dari operasi
+//         }else if(belanja==2){
+//             hargasatuan=10000
+//             var berat=parseInt(prompt('Mau beli berapa?'))
+//             alert('Anda harus bayar '+(hargasatuan*berat))
+//             konfirmasi=false
+//         }else if(belanja==3){
+//             hargasatuan=2000
+//             var berat=parseInt(prompt('Mau beli berapa?'))
+//             alert('Anda harus bayar '+(hargasatuan*berat))
+//             konfirmasi=false
+//         }else if(belanja==4){
+//             hargasatuan=30000
+//             var berat=parseInt(prompt('Mau beli berapa?'))
+//             alert('Anda harus bayar '+(hargasatuan*berat))
+//             konfirmasi=false
+//         }
+//         konfirmasi=confirm('Anda mau belanja lagi?') // //buat sebuah konfirmasi.Jika true, maka masuk ke looping while, jika tidak masuk ke else (bawah)
+//     }
+//     else{
+//         alert('Anda salah input') // //kondisi jika yang diinput salah
+//         konfirmasi=confirm('Anda mau belanja atau tidak?') // //buat sebuah konfirmasi
+//         console.log(konfirmasi)
+//         if(konfirmasi){ // //jika konfirmasi true
+//             alert('Ayo belanja')
+//         }else{ // //jikafalse
+//             alert('Sampai Jumpa')
+//         }
+//     }
+// }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    </script>
+</html>
+

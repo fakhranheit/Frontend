@@ -1,0 +1,35 @@
+<html>
+    <script>
+    
+        var nama = ['adi', 'sasa']
+        function checknama(namalogin){
+            for(i=0; i<nama.length; i++){
+                if(nama[i]==namalogin){
+                    return true
+                }
+            }
+            return false
+        }
+        alert('Welcome')
+        do{
+            var menu1=prompt('1.Login\n2.Regis\n3.Exit')
+            if (menu1==1) {
+                var login = prompt('Masukan username')
+                if (checknama(login)) {
+                    alert('Sukses')
+                }
+                else{
+                    alert('Gagal')
+                }
+            }
+            else if (menu1==2){
+                var input = prompt('Tambah nama')
+                nama.push(input)
+            }
+            else{
+                alert('Bye')
+            }
+        }while (true)
+
+    </script>
+</html>

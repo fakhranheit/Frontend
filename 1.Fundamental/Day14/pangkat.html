@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pangkat</title>
+</head>
+<body>
+    <center>
+
+    <h1>Hitung Pangkat</h1>
+    Masukkan angka :
+    <input type="text" id="input1">
+    <br><br>
+    Masukkan Pangkat:
+    <input type="text" id="input2">
+    <br><br><br>
+    <button onclick="pangkat()">Hitung</button>
+    <h1></h1>
+    <script>
+        const pangkat=()=>{
+            var angka1= document.getElementById('input1').value
+            var angka2= document.getElementById('input2').value
+            var hasil= Math.pow(angka1,angka2)
+            document.getElementsByTagName('h1')[1].innerHTML=`hasil ${angka1}^${angka2} adalah ${hasil}`
+        }
+    </script>
+    
+    </center>
+</body>
+</html>

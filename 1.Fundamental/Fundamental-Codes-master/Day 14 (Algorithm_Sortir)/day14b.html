@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <input type="kata" placeholder="Masukan sebuah kata" id="kata"> <!--buat sebuah input untuk menampung value string (sebuah kata penuh)-->
+        <br>
+        <input type="huruf" placeholder="Masukan sebuah huruf dalam kata" id="huruf"> <!--buat sebuah input untuk menampung value string (satu huruf)-->
+        <br>
+        <input type="button" value="Cari!" onclick="cari()"> <!--buat lah sebuah button untuk mengeksekusi sebuah function-->
+        <p></p>
+</body>
+    <script>
+        const cari=()=>{ // //buat function dengan parameter kosong
+            var kata = document.getElementById('kata').value // //buat sebuah variable yang berguna untuk mengambil input string sebelumnya (1 kata penuh)
+            var huruf = document.getElementById('huruf').value // //buat sebuah variable yang berguna untuk mengambil input string sebelumnya (1 huruf)
+            var hitung = 0 // //buat variable hitung dengan nilai 0 (agar nilai awaltidak bertambah)
+            for(var i=0; i<kata.length; i++){ // //looping akan selesai jika i lebih besar dari length (banyaknya) variable kata
+                if (kata[i] == huruf) { // //membuat kondisi untuk mencari kesamaan isi array di kata dengan value (huruf) yang diinput
+                    hitung++ // //menghitung banyaknya huruf tersebut di dalam kata (jika ada lebih dari 1, looping akan berjalan terus hingga selesai sampai akhir kata)
+                }
+            }   
+            document.getElementsByTagName('p')[0].innerHTML=`Huruf ${huruf} di dalam ${kata} ada ${hitung}` // //buat output tampilannya
+        }
+    </script>
+</html>

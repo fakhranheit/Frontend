@@ -1,0 +1,53 @@
+<html>
+    <script>
+    var konfirmasi=true
+    while (konfirmasi)
+    {
+        var buah=parseInt(prompt('masukkan pilihan buah:\n1.Apel Rp.8000/kg \n2.Durian Rp.70000/kg \n3. Jeruk Rp.5000/kg \n4. Salak Rp.2000/kg'))
+        var total=0
+        if (buah==1)
+        {
+            var berat=parseInt(prompt('anda mau beli berapa kilo'))
+            var harga=8000
+            total=harga*berat
+            document.write('harganya adalah Rp.' +total)
+            konfirmasi=false
+        }
+        else if (buah==2)
+        {
+            var berat=parseInt(prompt('anda mau beli berapa kilo'))
+            var harga=70000
+            total=harga*berat
+            document.write('harganya adalah Rp.' +total)
+            konfirmasi=false
+        }
+        else if (buah==3)
+        {
+            var berat=parseInt(prompt('anda mau beli berapa kilo'))
+            var harga=5000
+            total=harga*berat
+            document.write('harganya adalah Rp.' +total)
+            konfirmasi=false
+        }
+        else if (buah==4)
+        {
+            var berat=parseInt(prompt('anda mau beli berapa kilo'))
+            var harga=2000
+            total=harga*berat
+            document.write('harganya adalah Rp.' +total)
+            konfirmasi=false
+        }
+            else 
+        {alert('data tidak dikenali')
+        konfirmasi=confirm('apakah anda masih mau belanja')
+        
+        if (konfirmasi)
+        {alert('ayo belanja')}
+        else
+        {alert('jangan kembali lagi')}
+        }
+    }
+        
+    
+    </script>
+</html>

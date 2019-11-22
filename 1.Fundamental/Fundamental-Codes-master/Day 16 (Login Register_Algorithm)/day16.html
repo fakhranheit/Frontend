@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1> Login & Register </h1>
+        Username <input type="text" placeholder="Masukan username anda" id="username">
+        <br><br>
+        Password <input type="password" placeholder="Masukan password anda" id="password">
+        <br><br>
+        <input type="button" value="Register" onclick="btnregister()"><input type="button" value="Login" onclick="btnlogin()">
+        <br><br>
+        <h2></h2>
+        <h2></h2>
+        <p></p>
+    </center>
+</body>
+<script>
+    class User{
+        constructor(username, password, role){
+            this.username = username
+            this.password = password
+            this.role = role
+        }
+    }
+    
+    var datausers = [
+        new User ('Jaja', '11', 'Admin'),
+        new User ('Ququ', '12', 'Admin'),
+        new User ('Koko', '13', 'User')
+    ]
+    
+    var datauserlogin = {}
+
+    const btnlogin=()=>{
+        var usernamelogin = document.getElementById('username').value
+        var passwordlogin = document.getElementById('password').value
+        // //menggunakan metode for if
+        var btnlogin = false
+        for(i=0; i<datausers.length; i++){
+            if (usernamelogin == datausers[i].username && passwordlogin == datausers[i].password) {
+                btnlogin = true
+                datauserlogin = datausers[i]
+            }
+        }
+        // //dengan metode for each
+        // var arrbaru = datausers.filter((val)=>val.username==usernamelogin&&val.password==passwordlogin)
+        // datauserlogin=arrbaru[0]
+
+        if (datauserlogin) {
+            document.getElementsByTagName('h2')[0].innerHTML = datauserlogin.username
+                if (datauserlogin.role=='Admin') {
+                    document.getElementsByTagName('h2')[1].innerHTML = 'Sebagai admin'
+                }
+                else{
+                    document.getElementsByTagName('h2')[1].innerHTML = 'Sebagai user'
+                }
+            document.getElementsByTagName('p')[0].innerHTML = `<button onclick='logoutuser()'>Logout</button>`
+            }
+        else{
+            document.getElementsByTagName('h2')[0].innerHTML = 'Login salah'
+            document.getElementsByTagName('h2')[1].innerHTML = ''
+            document.getElementsByTagName('p')[0].innerHTML = ``
+            }
+        }
+        
+        const logoutuser=()=>{
+            datauserlogin={}
+            document.getElementsByTagName('h2')[0].innerHTML = ''
+            document.getElementsByTagName('h2')[1].innerHTML = ''
+            document.getElementsByTagName('p')[0].innerHTML = ``
+        }
+
+        const btnregister=()=>{
+            var username = document.getElementById('username').value
+            var password = document.getElementById('password').value
+            datausers.push(new User(username,password,'user'))
+            document.getElementsByTagName('h2')[0].innerHTML = 'Berhasil Register'
+        }
+
+</script>
+</html>

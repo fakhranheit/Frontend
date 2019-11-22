@@ -1,0 +1,56 @@
+<script>
+  var konfirmasi = true;
+  while (konfirmasi) {
+    var jamM = parseInt(prompt("masuk jam berapa?"));
+    if (jamM > 0 && jamM <= 12) {
+      konfirmasi = false;
+    } else {
+      alert("anda bukan memasukan angka");
+    }
+  }
+  konfirmasi = true;
+  while (konfirmasi) {
+    var masuk = parseInt(prompt("1.pagi\n 2.malam"));
+    if (masuk > 0 && masuk <= 2) {
+      konfirmasi = false;
+    } else {
+      alert("anda bukan memasukan angka");
+    }
+  }
+  konfirmasi = true;
+  while (konfirmasi) {
+    var jamK = parseInt(prompt("keluar jam berapa?"));
+    if (jamK >= 0 && jamK <= 12) {
+      konfirmasi = false;
+    } else {
+      alert("anda bukan memasukan angka");
+    }
+  }
+  konfirmasi = true;
+  while (konfirmasi) {
+    var keluar = parseInt(prompt("1.pagi\n 2.malam"));
+    if (keluar > 0 && keluar <= 2) {
+      konfirmasi = false;
+    } else {
+      alert("anda bukan memasukan angka");
+    }
+  }
+  var jampertama = parseInt(3000);
+  var harga = 2000;
+  var totaljam = parseInt(jamK) - parseInt(jamM);
+  if (jamK <= jamM) {
+    var kata = "biaya parkir anda sebesar ";
+    if (masuk == 1 && keluar == 2) {
+      alert(kata + ((totaljam + 11) * harga + jampertama));
+    } else if (masuk == 1 && keluar == 1) {
+      alert(kata + ((totaljam + 23) * harga + jampertama));
+    } else if (masuk == 2 && keluar == 1) {
+      alert(kata + ((totaljam + 11) * harga + jampertama));
+    } else if (masuk == 2 && keluar == 2) {
+      alert(kata + ((totaljam + 23) * harga + jampertama));
+    }
+  }
+  if (jamK > jamM) {
+    alert("biaya parkir anda sebesar " + (totaljam * harga + 1000));
+  }
+</script>

@@ -1,0 +1,23 @@
+<html>
+  <script>
+   var output = '';
+   var tinggisegitiga=prompt('masukkan tinggi segitiga')
+   let z = '';
+    for (a = 0; a < tinggisegitiga; a++) {
+        for (b = a; b <= tinggisegitiga - 1; b++) {
+            z += ' ';
+        }
+        for (c = 0; c <= a; c++) {
+            z += '*';
+        }
+        for (d = 0; d <= a - 1; d++) {
+            z += '*';
+        }
+        if (a < tinggisegitiga - 1) {
+            z += '\n';
+        }
+    }
+    console.log(z);
+    alert(z)
+  </script>
+</html>

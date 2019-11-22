@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <center>
+
+        <h1>Pencarian karakter</h1>
+
+    </center>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cari karakter</title>
+</head>
+<body>
+    <center>
+
+        <input type="text" id="input" placeholder="masukkan kata">
+        <br><br>
+        <input type="text" id="jumlah" placeholder="huruf yang dicari">
+        <br><br>
+        <button onclick="cari()">Submit</button>
+        <br>
+        <h1></h1>
+    </center>
+</body>
+<script>
+    const cari=()=>{
+        var kata=document.getElementById('input').value
+        var huruf=document.getElementById('jumlah').value
+        var hitung=0
+        
+        for (var i=0;i< kata.length;i++){
+            if(kata[i] == huruf){
+                hitung++
+            }
+        }
+        
+        document.getElementsByTagName('h1')[1].innerHTML=`jumlah huruf ${huruf}-nya adalah ${hitung}`
+    }
+</script>
+</html>

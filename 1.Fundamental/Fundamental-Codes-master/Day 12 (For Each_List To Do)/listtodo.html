@@ -1,0 +1,209 @@
+<!DOCTYPE html> <!--buat dalam format html5 (ketik langsung)-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>list todo</title>
+    <style>
+        tr,td,table{ /*buat styling untuk tabel*/
+            border: 1px solid lightcoral;
+            border-collapse: collapse;
+            padding: 10px
+        }
+        </style>
+</head>
+                                    <!--ISI BODY-->
+<body>
+    <center> <!--buat ke dalam center, agar isi nanti berada di tengah-->
+        <h1>Latihan Array of object</h1>
+        <table>
+            <thead> <!--head menandakan table paling atas-->
+                <tr> <!--row berarti table dalam bentuk baris (kesamping)-->
+                    <td>NO</td>
+                    <td>TODO</td>
+                    <td>HARI</td>
+                    <td>Gambar</td>
+                    <td>ACT</td>
+                </tr>
+            </thead>
+            <tbody> <!--body menandakan table tengah (di bawah head)-->
+
+            </tbody> <!--dibuat kosong sebagai tempat menampung isi script-->
+            <tfoot> <!--foot menandakan isi tabel di bawah body-->
+                <tr>
+                    <td></td> <!--agar dalam baris seimbang (jumlah bari atas-bawah), buat table default kosong-->
+                    <td><input oninput="onBtnSearchclick()" type="text" class="searchtodo"/></td> <!--buat tempat menampung string untuk mencari search value-->
+                    <td>
+                        <select oninput="onBtnSearchclick()" class="searchtodo"> <!--membuat menu option (pilihan)-->
+                            <option>Allday</option>
+                            <option> Senin</option>
+                            <option> Selasa</option>
+                            <option> Rabu</option>
+                            <option> Kamis</option>
+                            <option> Jumat</option>
+                        </select>
+                    </td>
+                    <td><button onclick="onBtnSearchclick()">Search</button> </td> <!--buat button untuk melakukan search value-->
+                </tr>
+            </tfoot>
+            <tfoot> <!--membuat foot kedua-->
+                <tr>
+                    <td></td> <!--agar dalam baris seimbang (jumlah bari atas-bawah), buat table default kosong-->
+                    <td><input type="text" class="addtodo"/></td> <!--buat tempat menampung string untuk menambah sebuah value-->
+                    <td>
+                        <select class="addtodo"> <!--membuat menu option (pilihan) yang nanti dipilih oleh user-->
+                            <option> Senin</option>
+                            <option> Selasa</option>
+                            <option> Rabu</option>
+                            <option> Kamis</option>
+                            <option> Jumat</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="addtodo"></td> <!--buat sebuah tempat input untuk menampung value gambar-->
+                    <td><button onclick="onAddTodoClick()">add</button></td> <!--buat button untuk melakukan add value-->
+                </tr>
+            </tfoot>
+        </table>
+    </center>
+</body>
+                                            <!--ISI SCRIPT-->
+<script>
+    class Todo{ // //buat class jenis constructor beserta parameter untuk menamping isi isi value
+        constructor(a,b,c){ // //berisi value kegiatan, hari, serta gambar (link)
+            this.kegiatan=a,
+            this.hari=b,
+            this.gambar=c
+        }
+    }
+    var listdata=[ // //buat variable dalam array yang berisi kergiatan kegiatan default
+            new Todo('Mancing','Senin','https://explorewisata.com/wp-content/uploads/2018/12/asyiknya-mancing-ikan-di-kolam-pemancingan-ikan-mabuk-manding-malang.jpg'),
+            new Todo('Galau','Selasa','https://i0.wp.com/titikdua.net/wp-content/uploads/2018/07/Kata-kata-galau-patah-hati-800x533.jpg'),
+            new Todo('Kondangan','Jumat','https://awsimages.detik.net.id/community/media/visual/2019/03/18/226701be-86ea-4f48-a165-4a82c835539c_43.jpeg?w=700&q=90')
+    ]
+    var indexedit=-1
+    var inddexdel=-2
+    const Printdata=(a)=>{ // //membuat function untuk print (mencetak) data
+        var output='' // //sebelumnya, bu`at variable output dengan string kosong, agar nanti menampung hasil tambahan
+        a.forEach((val,index) => { // //gunakan metode foreach (berpengaruh kepada semua isi array) a, dengan 2 parameter
+            if(index==indexedit){ // //jika index yang dipilih merupakan edit maka akan berjalan loopingan seperti ini
+                // //buat table dalam row pertama (berisi nomor array)
+                // //buat table input untuk user mengisi jenis kegiatan baru
+                // //opsi pemilihan hari yang akan dipilih user berbentuk option
+                // //buat table input untuk menampung isi link gambar
+                // //button jika user akan cancel perubahan kegiatan
+                // //button agar user menyimpan (save) kegiatannya
+                output+=`<tr>
+                            <td>${index+1}</td>
+                            <td><input type="text" id="edittodo${index}"></td>
+                            <td>
+                                <select id="edithari${index}">
+                                    <option> Senin</option>
+                                    <option> Selasa</option>
+                                    <option> Rabu</option>
+                                    <option> Kamis</option>
+                                    <option> Jumat</option>
+                                </select>    
+                            </td>
+                            <td><input type="text" id="editimg${index}"></td>
+                            <td>
+                            <button onclick="cancel()">cancel</button>
+                            <button onclick="save(${index})">save</button>
+                            </td>
+                        </tr>`
+            }else if(index==inddexdel){ // //jika yang dipilih adalah opsi hapus (delete)
+                // //table dalam row pertama (berisi nomor array)
+                // //table default yang berisi nama kegiatan (yang telah dibuat user)
+                // //table default yang berisi nama hari (yang telah dipilih user)
+                // //table default yang berisi link gambar (yang telah dipilih user)
+                // //button konfirmasi No (false), jika user membatalkan delete
+                // //button konfirmasi Yes (true)
+                output+=`<tr>
+                            <td>${index+1}</td>
+                            <td>${val.kegiatan}</td>
+                            <td>${val.hari}</td>
+                            <td><img src=${val.gambar} height='100px'/></td>
+                            <td>
+                            <button onclick="cancelDel()">No</button>
+                            <button onclick="confirmDel(${index})">Yes</button>
+                            </td>
+                        </tr>`
+            }else{ // //sebuah kondisi apabila user tidak memilih edit atau delete (hanya menampilkan hasil jadi/print saja)
+                // //table dalam row pertama (berisi nomor array)
+                // //table default yang berisi nama kegiatan
+                // //table default yang berisi nama hari
+                // //table default yang berisi gambar
+                // //opsi delete jika user ingin menghapus sebuah kegiatan
+                // //opsi edit jika user ingin memodifikasi sebuah kegiatan
+                output+=`<tr>
+                            <td>${index+1}</td>
+                            <td>${val.kegiatan}</td>
+                            <td>${val.hari}</td>
+                            <td>
+                            <img src=${val.gambar} height='100px'/></td>
+                            <td>
+                            <button onclick="hapus(${index})">delete</button>
+                            <button onclick="edit(${index})">edit</button></td>
+                        </tr>`
+            }
+        });
+        document.getElementsByTagName('tbody')[0].innerHTML=output // //semua dokumen/isi dimasukan di dalam table body (array ke-0)
+    }
+    Printdata(listdata)
+    const hapus=(bebas)=>{
+        inddexdel=bebas
+        Printdata(listdata)
+    }
+    const cancelDel=()=>{
+        inddexdel=-2
+        Printdata(listdata)
+    }
+    const confirmDel=(bebas)=>{
+        listdata.splice(bebas,1)
+        inddexdel=-1
+        Printdata(listdata)
+    }
+    const edit=(bebas)=>{
+        indexedit=bebas
+        Printdata(listdata)
+    }
+    const cancel=()=>{
+        indexedit=-1
+        Printdata(listdata)
+    }
+    const save=(bebas)=>{ // //sebuah variable yang berisi function dari button save (kegiatan menyimpan kegiatan baru)
+        var newtodo=document.getElementById(`edittodo${bebas}`).value // //menampung hasil string kegiatan baru yang diketik user
+        var newhari=document.getElementById(`edithari${bebas}`).value // //menampung hari baru yang dipilih user (dalam bentuk opsi)
+        var newimg=document.getElementById(`editimg${bebas}`).value // //menampung hasil gambar kegiatan baru yang diketik user (link gambar)
+        console.log(newtodo,newhari,newimg)
+        if(newtodo){ // /kondisi jika terdapat kegiatan baru
+            listdata[bebas].kegiatan=newtodo // //menambah kegiatan baru tersebut ke dalam array
+        }
+        if(newhari!==listdata[bebas].hari){
+            listdata[bebas].hari=newhari // //menambah hari baru tersebut ke dalam array
+        }
+        if(newimg){
+            listdata[bebas].gambar=newimg // //menambah gambar baru tersebut ke dalam array
+        }
+        indexedit=-1
+        Printdata(listdata) // //mencetak kembali list data setelah perubahan yang dilakukan
+    }
+    const onAddTodoClick=()=>{ // //sebuah variable yang berisi function dengan parameter kosong jika user akan menambahkan kegiatan baru (buka edit kegiatan)
+        var input=document.getElementsByClassName('addtodo') // //mengambil hasil input kegiatan baru dari input box 'addtodo'
+        var todobaru=input[0].value // //menampung kegiatan baru yang diinput user
+        var haribaru=input[1].value // //menampung hari baru yang dipilih user
+        var imagebaru=input[2].value // //menampung link gambar baru yang diinput user
+        listdata.push(new Todo(todobaru,haribaru,imagebaru)) // //mendorong/push hasil kegiatan baru inputan user ke dalam listdata
+        Printdata(listdata) // //mencetak kembali list data setelah penambahan dilakukan
+    }
+    const onBtnSearchclick=()=>{ // //sebuah variable yang berisi function dengan parameter kosong jika user ingin mencari kegiatan yang ada/telah dibuat
+        var input=document.getElementsByClassName("searchtodo") // //mengambil hasil input di input box
+        var namasearch=input[0].value // //variable string yang diisi user
+        var hariSearch=input[1].value // //variable opsi yang dipilih user
+        var newarr=listdata.filter((val)=>val.kegiatan.toLowerCase().startsWith(namasearch.toLowerCase()) && // //menggunakan metode filter untuk mencari array yang tersedia, dengan kondisi semua string dalam tulisan kecil
+        (val.hari.toLowerCase().startsWith(hariSearch.toLowerCase())||hariSearch=='Allday')) // //gunakan startswith sebagaimetode untuk melakukan penyaringan string. Namun kondisi tidak berlaku jika opsi hari yang dipilih 'AllDay' (karena bisa tiap hari apa saja)
+        // console.log(newarr)
+        Printdata(newarr) // //mencetak hasil filter sesuai deskripsi yang dituliskan
+    }
+</script>
+</html>

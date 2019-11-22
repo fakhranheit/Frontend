@@ -1,0 +1,54 @@
+<html>
+    <script>
+        var jampertama=5000
+        var harga=2000
+        var jamM= parseInt(prompt('masukkan jam masuk'))
+
+            if (jamM<1 || jamM>12)
+            {
+                alert('data tidak dikenali')
+            }
+            // else
+            // {
+            //     alert('data tidak dikenali')
+            // }
+            
+        var masuk=prompt('1.AM \n 2.PM')
+        
+            if(masuk=='1'||masuk=='2')
+        {
+
+        var jamK= parseInt(prompt('masukkan jam keluar'))
+        }
+
+            // else{alert('data tidak dikenali')}
+        var keluar= prompt('1.AM \n 2.PM')
+
+            if (jamK<1 || jamK>12)
+            {
+                alert('data tidak dikenali')
+            }
+            //  else
+            // {
+            //     alert('data tidak dikenali')
+            // }
+        var durasi= jamK-jamM
+        
+        var kata = "biaya parkir anda sebesar "
+        if (masuk == 1 && keluar == 2) {
+        alert(kata + ((durasi + 11) * harga + jampertama))
+        } else if (masuk == 1 && keluar == 1) {
+        alert (durasi * harga + jampertama)
+        } else if (masuk == 2 && keluar == 1) {
+        alert((durasi + 11) * harga + jampertama)
+        } else if (masuk == 2 && keluar == 2) {
+        alert(durasi  * harga + jampertama)
+        }
+    
+    
+    
+
+        
+    
+    </script>
+</html>

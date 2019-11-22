@@ -1,0 +1,116 @@
+<script>
+
+    // //============LATIHAN MEMBUAT SEGITIGA SAMA KAKI DAN SIKU SIKU===========================================
+    function segitigabesaralasbaawah(tinggi){ // //buat function sebagai rumus segitiga pertama
+        let z='' // //buat variable z dengan isi string kosong
+        for(a=0;a<tinggi;a++){ // //looping akan berhenti jika a (akumulasi) lebih besar daripada tinggi yang akan diinput oleh user nanti
+            for(b=a;b<tinggi-1;b++){ // //looping berakhir jika b lebih besar daripada tinggi yang dimasukan. Jika masih memenuhi, maka akan lanjut ke looping bawah.
+                z+=' ' // //menambahkan sebuah spasi (invisible)
+            }
+            for(c=0;c<=a;c++){ // //looping akan berhenti jika nilai c lebih besar daripada a (yang telah di akumulasi)
+                z+='*'
+            }
+            for(d=0;d<=a-1;d++){ // //looping akan berhenti jika nilai c lebih besar daripada a - 1 (yang telah di akumulasi)
+                z+='*'
+            } // //jika semua kondisi sudah tidak terpenuhi, maka akan lanjut ke kondisi dibawah ini
+                if(a<tinggi-1){ // //akan berjalan jika looping di atas selesai. Dan akan berhenti jika a (akumulasi) lebih besar daripada tinggi (yang diinput) - 1
+                    z+='\n' // //membuat penulisan enter
+                }
+        }
+        return z
+    }
+    function segitagabesaralasatas(tinggi){
+        let z=''
+        for(a=0;a<tinggi;a++){
+            for(b=0;b<a;b++){
+                z+=' '
+            }
+            for(c=a;c<tinggi;c++){
+                z+='*'
+            }
+            for(d=a+1;d<tinggi;d++){
+                z+='*'
+            }
+                if(a<tinggi-1){
+                    z+='\n'
+                }
+        }
+        return z
+    }
+    function segitigasiku2bawah(tinggi){
+        let output=''
+        for(i=0;i<tinggi;i++){
+            for(j=0;j<=i;j++){
+                output+='*'
+            }
+            if (i<=tinggi) {
+            output+='\n'
+            }
+        }
+        return output
+    }
+    function segitigasiku2atas(tinggi){
+        let output =''
+        for(i=0;i<tinggi;i++){
+            for(j=i;j<tinggi;j++){
+                output+='*'
+            }    
+            if(i<=tinggi){
+                output+='\n'
+            }
+        }
+        return output
+    }
+
+    alert('Selamat datang di website membuat Segitiga') // //buat alert pertama sebagai pembuka
+        var konfirmasi = true // //buat sebuah variable konfirmasi untuk menjalan looping kembali jika 'confirm' yang dipilih = true
+        while (konfirmasi==true){ // //buat isi looping while. Looping di jalan akan berjalan jika confirmation yang dipilih = true
+            var menusegitigabintang=prompt('Pilih jenis segitiga?\n1.Siku - Siku\n2.Sama Kaki') // //buat opsi menu
+                if(menusegitigabintang==1){ // //akan berjalan jika menu yang dipilih ialah 1
+                    var konfirmasi1 = true // //buat sebuah konfirmasi yang berguna untuk kembali menjalankan looping apabila 'confirmation' = true
+                    var atasbawah=prompt('Pilih jenis alasnya :\n1.Atas\n2.Bawah') // //buat variable dengan opsi menu jenis alas (pilihan, berpengaruh terhadap rumus function)
+                    var tinggi=parseInt(prompt('Berapa tinggi segitiganya?')) // //variable untuk menampung angka tinggi
+                        if(atasbawah==1){ // //jika yang dipilih alas ke-1, akan menjalankan function di bawah ini
+                        alert(segitigasiku2atas(tinggi)) // //menjalankan function yang telah dibuat, beserta value tinggi yang sudah diinput user
+                        }
+                        else{ // //jika yang dipilih alas lainnya
+                        alert(segitigasiku2bawah(tinggi))
+                        }
+                    konfirmasi=confirm('Anda mau melanjutkan lagi?') // //membuat sebuah 'confirmation'. Jika true, akan looping lagi, jika false akan close
+                        if (konfirmasi) { // //buat kondisi yang kemudian akan memunculkan sebuah alert, bergantung pada pilihan (true/false)
+                            alert('Mari kita lanjutkan')
+                        }
+                        else {
+                        alert('Terima kasih telah mengunjungi website kami')
+                        }
+                }
+                else if(menusegitigabintang==2){
+                    var konfirmasi2 = true
+                    var atasbawah=prompt('Pilih jenis alasnya :\n1.Atas\n2.Bawah')
+                    var tinggibintang=parseInt(prompt('Berapa tinggi segitiganya?'))
+                        if(atasbawah==1){
+                            alert(segitagabesaralasatas(tinggibintang))
+                        }
+                        else{
+                        alert(segitigabesaralasbaawah(tinggibintang))
+                        }
+                    konfirmasi=confirm('Anda mau melanjutkan lagi?')
+                        if (konfirmasi) {
+                            alert('Mari kita lanjutkan')
+                        }
+                        else {
+                        alert('Terima kasih telah mengunjungi website kami')
+                        }
+                }
+                else{ // //jika opsi yang dipilih di awal tidak sesuai dengan opsi tersedia
+                    alert('Anda salah input') // //buat alert yang memberitahu bahwa kita salah input
+                    konfirmasi=confirm('Mau melanjutkan pembuatan segitiga?') // //buat sebuah 'confirmation'. Jika true, akan melakukan looping ke awal, jika false akan close
+                    if (konfirmasi) { // //buat kondisi yang kemudian akan memunculkan sebuah alert, bergantung pada pilihan (true/false)
+                        alert('Mari kita lanjutkan')
+                    } else {
+                    alert('Terima kasih telah mengunjungi website kami')
+                    }
+                }
+        }
+
+</script>

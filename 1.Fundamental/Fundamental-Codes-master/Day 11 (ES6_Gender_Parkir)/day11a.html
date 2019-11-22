@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Welcome to Sudirman Borju Parking</h1>
+    Masuk Jam berapa anda? <input id="masuk" type="number" placeholder="Dalam format angka 24 jam">
+    <br><br>
+    Keluar Jam berapa anda? <input id="keluar" type="number" placeholder="Dalam format angka 24 jam">
+    <br><br>
+    <button onclick="klik()"> OK </button>
+    <br>
+    <h1></h1>
+    <h1></h1>
+</body>
+<script>
+    klik=()=>{
+        console.log('masuk')
+        masuk=parseInt(document.getElementById('masuk').value)
+        keluar=parseInt(document.getElementById('keluar').value)
+        if(!(keluar%1==0)||!(masuk%1==0)){
+            document.getElementsByTagName('h1')[1].innerHTML="Salah dah lu"
+        }
+        if(keluar<masuk){
+            keluar+=24
+        }
+        biayatotal=(keluar-masuk)*2000
+        document.getElementsByTagName('h1')[1].innerHTML=`Total biaya anda Rp${biayatotal}`
+    }
+</script>
+</html>

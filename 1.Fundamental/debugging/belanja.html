@@ -1,0 +1,109 @@
+<script>
+    var produk=['anggur','apel','jeruk']
+    var harga=[10000,20000,5000]
+    function printProd(a){
+        var output=''
+        for(var i=0;i<a.length;i++){
+            output+=(i+1)+'.'+produk[i].toUpperCase()+' Rp.'+harga[i]+',00 \n'
+            //kenapa outputnya harus output+= karena kalo gapake + cuma output= doang, 
+            //nanti di alertnya cuma (3 jeruk rp. 5000) karena tu updatean terakhir dari output,
+            // outputan anggur dan apel ke ganti ga ketambah.
+        }
+        return output
+    }
+    alert('selamat datang di purwamart'.toLocaleUpperCase( ))
+    do {
+        var menuutama=prompt('1.user\n2.admin\n3.Exit')
+        if(menuutama==1){
+            var konfirmasiuser=true
+            var akumulasiharga=0
+            var listbeli=''
+            while(konfirmasiuser){
+                var menuuser=prompt('mau beli apa? silahkan pilih angkanya\n'+printProd(produk))
+                if(menuuser){
+                    var barang=produk[menuuser-1]
+                    var price=harga[menuuser-1]
+                    var jmlbeli=prompt('mau beli berapa kg?')
+                    alert('Harga untuk '+jmlbeli+' kg '+barang+ ' Rp. '+(price*jmlbeli))
+                }
+                akumulasiharga+=(price*jmlbeli)
+                listbeli+='- anda membeli '+ jmlbeli+' kg '+barang+ ' seharga '+(price*jmlbeli)+'\n'
+                konfirmasiuser=confirm('mauu belanja lagi tidak')
+                }
+            
+            alert(listbeli+'\n==================================================\n\ntotal belanja yang harus anda bayar adalah Rp.'+ akumulasiharga)
+
+        }else if(menuutama==2){
+            do {
+                var menuadmin=prompt('1.Tambah data\n2.Update data\n3.Hapus data\n4.kembali ke menu utama')
+                if(menuadmin==1){ 
+                    do {
+                        var newprod=prompt('masukkan produk baru kaka')
+                        var newprice=parseInt(prompt('masukkan harga baru kakak')) 
+                        produk.push(newprod)
+                        harga.push(newprice)
+                        alert(printProd(produk))
+                        var konfirmasi1=confirm('mau ulang lagi nggak kaka')
+                    } while (konfirmasi1);  
+                }else if(menuadmin==2){
+                    konfrmasiupdateapa=true
+                    do{
+                    var updateapa=prompt('mau update apa:\n1.Produk\n2.Harga')
+                    if(updateapa==1){
+                        do {
+                            var pilihan=parseInt(prompt('pilih no. produk yang ingin di update:\n______________________________________\n'+printProd(produk))+'\nPilih produk ') 
+                            var updateprod=prompt('masukkan nama product untuk menggantikan '+produk[pilihan-1])
+                            var updateconfirm=confirm('yakin mau mengganti produk '+produk[pilihan-1]+' dengan '+updateprod)
+                            if(updateconfirm){
+                                produk.splice(pilihan-1,1,updateprod)
+                                alert(printProd(produk))
+                            }else{
+                                alert('tidak jadi update')
+                            }
+                            var konfirmasi2=confirm('mau update produk lagi nggak')
+                        } while (konfirmasi2);
+                    }else if(updateapa==2){
+                        do {
+                            var pilihan=parseInt(prompt('pilih no. harga produk mana yang ingin di update:\n______________________________________\n'+printProd(produk))+'\nPilih produk ') 
+                            var updateprod=prompt('masukkan harga baru untuk menggantikan harga '+produk[pilihan-1]+' sebelumnya')
+                            var updateconfirm=confirm('yakin mau mengganti harga '+produk[pilihan-1]+' menjadi Rp.  '+updateprod)
+                            if(updateconfirm){
+                                harga.splice(pilihan-1,1,updateprod)
+                                alert(printProd(produk))
+                            }else{
+                                alert('tidak jadi update')
+                            }
+                            var konfirmasi2=confirm('mau update harga lagi nggak')
+                        } while (konfirmasi2);
+        
+                    }else{
+                        alert('anda salah ')
+                        konfrmasiupdateapa=confirm('mau kembali ke menu update ?')
+                    }
+                    alert('update anda selesai')
+                    break
+                    }while(konfrmasiupdateapa)
+                }else if(menuadmin==3){
+                    konfirmasi3=true
+                    while(konfirmasi3){
+                    var dihapus=parseInt(prompt('pilih no yang ingin di hapus:\n______________________________________\n'+printProd(produk)))
+                    var updatehapus=confirm('yakin ingin menghapus '+produk[dihapus-1])
+                    if(updatehapus){
+                        produk.splice(dihapus-1,1)
+                        alert(printProd(produk))
+                    }else{
+                        alert('tidak jadi di hapus')
+                    }
+                        konfirmasi3=confirm(' mau menghapus lagi?')
+                    }
+        
+                }else{
+                    break
+                }
+            } while (true);
+        }else{
+            alert('selamat tinggal semoga kembali lagi'.toUpperCase())
+            break
+        }
+    } while (true);
+    </script>

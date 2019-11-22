@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Latihan DOM</title>
+    <style>
+
+        tr,td,table{
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        div{
+            height: fit-content;
+            width: fit-content;
+            border: 1px solid grey;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Login & Register</h1>
+       
+           
+        <div>
+
+                    Username: <input type="text" id="subjek1" /> <br><br>
+                    Password: <input type="password" id="subjek2"/> <br><br>
+                    <button onclick="register()">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="login()">Login</button>
+
+                </div>
+                <h1></h1>
+                <h1></h1>
+                <p></p>
+                <p id="search"></p>
+    <table>           
+            <thead></thead>
+            <tbody>
+
+            </tbody>        
+              
+    </table>
+    <br><br>
+    <table>
+        
+                <tbody>
+
+                </tbody> 
+       
+    </table>
+    <h3></h3>
+                    <h4></h4>
+                    
+                    <p id="addProduk"></p>
+                    <p id="checkout"></p>
+                    <p id="countdown"></p>
+    </center>
+</body>
+<script>
+
+//array of object produk
+class Produk{
+            constructor(a,b,c){
+                this.namaprod=a
+                this.harga=b
+                this.gambar=c
+            }
+        }
+            var listproduk=[
+            new Produk('cheetos',4000,'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-3400167/cheetos_cheetos-40-gr-jagung-bakar_full02.jpg?output-format=webp'),
+            new Produk('pringles',10000,'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//935/pringles_pringles-original-keripik-kentang_full02.jpg?output-format=webp'),
+            new Produk('chitato',5000,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZUIvJYbJdfKyGRn10yDZZpWA08_p-PfE2I3U1DEHb9-AAn9Yt&s')
+        ]
+        
+        var listcart=[]// untuk cart user
+
+//array of object user atau admin
+class User{
+    constructor(a,b,c){
+        this.username=a,
+        this.password=b,
+        this.role=c
+    }
+}
+var listUser=[
+    new User('fakhran','12','user'),
+    new User('admin','123','admin'),
+]
+
+
+var uangToko=0
+var datauserlogin={}
+
+const login=()=>{
+    var username=document.getElementById('subjek1').value
+    var pass=document.getElementById('subjek2').value
+    var arrbaru=listUser.filter((val)=>val.username==username&&val.password==pass) //val.username=dino dan admin  ||| val.password=12 dan 123
+    datauserlogin=arrbaru[0]
+    document.getElementsByTagName('h1')[1].innerHTML=''//jika password salah line ini akan menghapus pesan salah login saat login sudah benar
+   
+    // if dimulai
+    if(datauserlogin){
+
+        // document.getElementsByTagName('h1')[1].innerHTML=datauserlogin.username
+
+            if(datauserlogin.role=='admin'){
+                printProdukAdmin(listproduk)
+                document.getElementById('addProduk').innerHTML=`<button onclick="tambahProduk()"> Tambah produk</button>`
+                document.getElementsByTagName('div')[0].innerHTML=''
+                document.getElementsByTagName('h1')[0].innerHTML=`Selamat datang ${datauserlogin.username} <br> uang toko saat ini Rp.${uangToko}`
+                document.getElementsByTagName('p')[0].innerHTML=`<button onclick="logoutAdmin()"> logout</button>`
+            }else{
+                printProduk(listproduk)
+                printCart(listcart)//supaya muncul cart kosong pada saat awal login
+                document.getElementsByTagName('div')[0].innerHTML=''
+                document.getElementsByTagName('h1')[0].innerHTML=`Selamat datang ${datauserlogin.username}`
+                document.getElementsByTagName('p')[0].innerHTML=`<button onclick="logoutuser()"> logout</button>`
+            }
+        document.getElementsByTagName('div')[0].innerHTML= `` 
+    }else{
+        document.getElementsByTagName('div')[0].innerHTML=` Username: <input type="text" id="subjek1" /> <br><br>
+                                                            Password: <input type="password" id="subjek2"/> <br><br>
+                                                            <button onclick="register()">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="login()">Login</button>`
+        document.getElementsByTagName('h1')[1].innerHTML='user tidak ditemukan atau password salah'
+        document.getElementsByTagName('h1')[2].innerHTML=''
+        document.getElementsByTagName('p')[0].innerHTML=``
+    }
+    //if selesai
+}
+
+//fungsi logout user 
+const logoutuser=()=>{
+    var keluar=confirm('apakah anda yakin ingin keluar? (jika logout sebelum checkout, seluruh cart anda akan dikosongkan)')
+    while(keluar){
+
+    clearInterval(timer)
+    datauserlogin={}
+    listcart=[]
+    printCart(listcart)
+    document.getElementsByTagName('h1')[1].innerHTML=''
+    document.getElementsByTagName('h1')[2].innerHTML=''
+    document.getElementsByTagName('p')[0].innerHTML=``
+    document.getElementsByTagName('h1')[0].innerHTML=`Login & Register`
+    document.getElementsByTagName('div')[0].innerHTML=` Username: <input type="text" id="subjek1" /> <br><br>
+                                                       Password: <input type="password" id="subjek2"/> <br><br>
+                                                      <button onclick="register()">Register</button> <button onclick="login()">Login</button>`
+    document.getElementsByTagName('tbody')[0].innerHTML=''
+    document.getElementsByTagName('tbody')[1].innerHTML=''
+    document.getElementsByTagName('h3')[0].innerHTML=''
+    document.getElementsByTagName('h4')[0].innerHTML=``
+    document.getElementById('checkout').innerHTML=''
+    document.getElementById('addProduk').innerHTML=``
+    document.getElementsByTagName('thead')[0].innerHTML=``  
+    document.getElementById('search').innerHTML=``
+    document.getElementById('countdown').innerHTML=``
+    break
+    }
+}
+
+//fungsi logout admin 
+const logoutAdmin=()=>{
+    var keluar=confirm('apakah anda yakin ingin keluar?')
+    while(keluar){
+    datauserlogin={}
+    // listcart=[]
+    document.getElementsByTagName('h1')[1].innerHTML=''
+    document.getElementsByTagName('h1')[2].innerHTML=''
+    document.getElementsByTagName('p')[0].innerHTML=``
+    document.getElementsByTagName('h1')[0].innerHTML=`Login & Register`
+    document.getElementsByTagName('div')[0].innerHTML=` Username: <input type="text" id="subjek1" /> <br><br>
+                                                       Password: <input type="password" id="subjek2"/> <br><br>
+                                                      <button onclick="register()">Register</button> <button onclick="login()">Login</button>`
+    document.getElementsByTagName('tbody')[0].innerHTML=''
+    document.getElementsByTagName('tbody')[1].innerHTML=''
+    document.getElementsByTagName('h3')[0].innerHTML=''
+    document.getElementsByTagName('h4')[0].innerHTML=``
+    document.getElementById('checkout').innerHTML=''
+    document.getElementById('addProduk').innerHTML=``
+    document.getElementsByTagName('thead')[0].innerHTML=``  
+    document.getElementById('search').innerHTML=``
+    document.getElementById('countdown').innerHTML=``
+    break
+    }
+}
+
+const register=()=>{
+    var username=document.getElementById('subjek1').value
+    var pass=document.getElementById('subjek2').value
+    if(username&&pass){
+        
+        listUser.push(new User(username,pass,'user'))
+        document.getElementsByTagName('h1')[1].innerHTML='berhasil register'
+
+    }
+
+    else{
+        alert('Username dan password tidak boleh kosong')
+    }
+}
+
+const printProduk=(a)=>{
+    
+            var output=''
+                a.forEach((val,index)=>{
+                    console.log(val)
+                    console.log(index)
+                    output+=`<tr>
+                        <td>${val.namaprod}</td>
+                        <td>${val.harga}</td>
+                        <td><img src=${val.gambar}height="110px" width="110px"/></td>
+                        <td><button onclick="addToCart(${index})">add to cart</button></td>
+                        </tr>`
+
+                })
+                document.getElementsByTagName('thead')[0].innerHTML=`<tr>       
+                        <td>nama</td>
+                        <td>harga</td>
+                        <td>gambar</td>
+                        <td>action</td>
+                        </tr>`                                                          //head tabel
+                document.getElementsByTagName('tbody')[0].innerHTML=output              //isi tabel
+                document.getElementById('search').innerHTML=`<input type="text" id="searchItem" /> &nbsp; <button onclick="searchProduk()">search</button>`            
+            }
+        
+
+
+const addToCart=(index)=>{
+            var addconfirm=confirm("Anda yakin ingin menambahkan ke cart anda?")
+            if(addconfirm){
+                listcart.push(listproduk[index])
+                printCart(listcart)
+            }          
+        }
+        
+const printCart=(a)=>{
+            var output=''
+            var jumlah=0
+            var totalHarga=0
+            var bayar=true
+                a.forEach((val,index)=>{
+                    totalHarga+=val.harga
+                    output+=`<tr>
+                        <td>${val.namaprod}</td>
+                        <td>${val.harga}</td>
+                        <td><img src=${val.gambar}height="120px" width="110px"/></td>
+                        <td><button onclick="deleteCart(${index})">Delete from cart</button></td>
+                    </tr>`
+                    jumlah++
+                })
+                if(jumlah==0){
+                    bayar=true
+                    document.getElementsByTagName('h3')[0].innerHTML='Cart anda kosong'
+                    document.getElementsByTagName('h4')[0].innerHTML= ``
+                }
+                else{
+                    bayar=false
+                    document.getElementsByTagName('h3')[0].innerHTML=`jumlah barang belanjaan anda ${jumlah}`
+                    document.getElementsByTagName('h4')[0].innerHTML=`total harganya ${totalHarga}`
+                    console.log(listcart)
+
+                    
+                }
+                document.getElementsByTagName('tbody')[1].innerHTML=output
+
+                if (bayar){
+                    document.getElementsByTagName('p').innerHTML=''
+                    document.getElementById('checkout').innerHTML=''
+                }
+                else{
+                    document.getElementById('checkout').innerHTML='<button onclick="selesaiBelanja(),start()">Checkout</button>'
+                }
+         
+                
+        }
+
+const deleteCart=(index)=>{
+            var confHapus=confirm('apakah anda ingin mengeluarkan dari cart?')
+            if (confHapus){
+                listcart.splice(index,1)
+                printCart(listcart)
+            }
+            else{
+                printCart(listcart)
+            }
+        }
+
+const selesaiBelanja=()=>{
+    document.getElementById('checkout').innerHTML=`<input id="selesai" type="number" placeholder="masukkan nominal"></input>
+    <button onClick="bayar()">Bayar</button>`
+}
+
+const totalBayar=(a)=>{//untuk menghitung total harga pada listcart
+    
+    var output=0
+    for(i=0;i<a.length;i++){
+        output+=a[i].harga
+    }
+    return output
+}
+
+
+const bayar=()=>{
+    uangToko+=totalBayar(listcart)
+    // console.log(uangToko)
+    document.getElementById('countdown').innerHTML=``
+    if(document.getElementById('selesai').value<totalBayar(listcart)){
+        alert(`uang anda kurang`)
+    }
+    else if(document.getElementById('selesai').value>totalBayar(listcart)){
+        alert(`kembalian anda ${document.getElementById('selesai').value-totalBayar(listcart)}`)
+    }
+    else if(document.getElementById('selesai').value=totalBayar(listcart)){
+        alert('uang anda pas')
+    }
+   
+    
+    clearInterval(timer)
+    listcart=[]
+    printCart(listcart)
+}
+    
+
+
+var timer// di inisialisasi dulu sebelum digunakan di function
+start=()=>{
+    time=31
+    timer=setInterval(funcWaktu,1000)// tiap 1 detik, akan menjalankan menjalankan funcWaktu(dimana timenya dikurang 1 detik)
+}
+
+const funcWaktu=()=>{
+    time--//disini dikurang satu detiknya
+    document.getElementById('countdown').innerHTML=`waktu bayar mu tersisa ${time} detik`
+    if(time<=-1){ // terus disini lebih baik <=-1 spy dia selesainya saat waktunya dah 0
+        listcart=[]
+        clearInterval(timer)
+        printCart(listcart)
+        document.getElementsByTagName('h4')[0].innerHTML=``
+        alert('waktu anda habis')
+        document.getElementById('countdown').innerHTML=``
+        document.getElementsByTagName('h3')[0].innerHTML=`keranjang anda masih kosong`
+        document.getElementsByTagName('h3')[1].innerHTML=``
+        document.getElementsByTagName('table')[1].innerHTML=''
+        document.getElementsByTagName('p')[0].innerHTML=``
+        time=31//supaya saat ingin belanja lagi setelah checkout waktunya reset lagi
+        document.getElementsByTagName('p')[1].innerHTML=`<button onclick="logoutuser()"> logout</button>`
+        document.getElementById('checkout').innerHTML=``
+    }
+    
+}
+
+//function admin
+const printProdukAdmin=(a)=>{
+    var headtable=`<tr>
+                        <td>nama</td>
+                        <td>harga</td>
+                        <td>gambar</td>
+                        <td>action</td>
+                        </tr>`
+            var output=''
+                a.forEach((val,index)=>{
+                    console.log(val)
+                    console.log(index)
+                    output+=`<tr>
+                        <td>${val.namaprod}</td>
+                        <td>${val.harga}</td>
+                        <td><img src=${val.gambar}height="110px" width="110px"/></td>
+                        <td><button onclick="hapusProduk(${index})">Delete</button> <button onclick="editProduk(${index})">Edit</button></td>
+                        
+                        </tr>
+                        `
+
+                })
+                
+                document.getElementsByTagName('tbody')[0].innerHTML=headtable+output
+        }
+
+const hapusProduk=(index)=>{
+    konfirmasiDelete=confirm('apakah anda ingin menghapus produk ini?')
+    while (konfirmasiDelete){
+         listproduk.splice(index,1)
+         alert('produk telah dihapus')
+         printProdukAdmin(listproduk)
+         break
+        }   
+    
+}
+const tambahProduk=()=>{
+        var produkBaru=prompt('masukkan nama produk baru')
+        var hargaBaru=prompt('masukkan harga produk baru')
+        var imageBaru=prompt('masukkan foto produk baru')
+        listproduk.push(new Produk(produkBaru,hargaBaru,imageBaru))
+        printProdukAdmin(listproduk)
+}
+
+const searchProduk=()=>{
+        var cari=document.getElementById("searchItem").value
+        var newarr=listproduk.filter(val=>val.namaprod.startsWith(cari))
+        printProduk(newarr)
+    }
+
+const editProduk=(a)=>{
+//  alert('fitur belum tersedia')
+
+    konfirmasiEdit=confirm(`Yakin mau Edit data ${listproduk[a].namaprod}`)
+    if(konfirmasiEdit){
+        var namaBarangbaru = prompt(`Nama barang baru`)
+        var hargaBaru = parseInt(prompt(`Harga barang baru`))
+        var gambarBaru = prompt(`Gambar barang baru`)
+        if(namaBarangbaru){
+            listproduk[a].namaprod=namaBarangbaru
+            
+        }
+        if(hargaBaru){
+            listproduk[a].harga=hargaBaru
+        }
+        if(editgambarbarang){
+            listproduk[a].gambar=editgambarbarang
+        }
+
+        printProduk(listproduk)
+    }
+
+    
+}
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html> <!--buat dalam format html5 (ketik langsung)-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM Parkir</title> <!--judul dokumen-->
+</head>
+<body> <!--buat desaiin html dalam body-->
+    <h1>Latihan DOM Parkir</h1> <!--heading utama (judul di html)-->
+    <input type="number" placeholder="Jam Masuk" id="masuk"> <!--dengan input, berarti kita akan memasukan/mengisi sebuah value-->
+    <br> <!--untuk meberi jarak enter (break)-->
+    <input type="radio" name="kondisi1"/> AM <!--dengan menulis type = radio, maka bentuknya merupakan sebuah bulatan yang dipilih (klik)-->
+    <input type="radio" name="kondisi1"/> PM
+    <br>
+    <input type="number" placeholder="Jam Keluar" id="keluar">
+    <br>
+    <input type="radio" name="kondisi2"> AM
+    <input type="radio" name="kondisi2"> PM
+    <br>
+    <input type="button" value="hitung" onclick="parkir()"> <!--gunakan button untuk menampilkan hasil akhir (rumus terdapat di script). Gunakan onClick='' untuk mengambil fungsi yang akan dijalankan melalui proses script-->
+    <p>Biaya parkir anda sebesar Rp. 000,00</p> <!--disini kita menggunakan p beserta isi string yang sudah tersedia (default). Nantinya, hasil akhir akan masuk di paragraf ini-->
+</body>
+<script>
+    const parkir=()=>{ // //buat function dengan sebuah parameter kosong
+        // console.log('masuk')
+        var masuk=document.getElementById('masuk').value // //untuk mengambil value yang telah diinput oleh user sebelumnya
+        masuk=parseInt(masuk) // //dibuat parseInt agar nilai tidak koma
+        var keluar=document.getElementById('keluar').value
+        keluar=parseInt(keluar)
+        var kondisi1 // //var kondisi mewakili pilihan AM/PM
+        if(document.getElementsByName('kondisi1')[0].checked){
+            kondisi1=1
+        }else {
+            kondisi1=2
+        }
+        var kondisi2
+        if(document.getElementsByName('kondisi2')[0].checked){
+            kondisi2=1
+        }else{
+            kondisi2=2
+        }
+        if (masuk>=keluar && kondisi1==kondisi2) { // //kondisi bila angka jam masuk lebih besar daripada jam keluar. Serta kondisi jam masuk berbeda dengan kondisi jam keluar
+            keluar+=24 // //Cth: 11AM & 11AM => 11AM & 35AM => 24 jam
+        }
+        else if (kondisi1!==kondisi2) { // //kondisi apabila AM dan PM yang dibuat berbeda
+            keluar+=12  // //Cth: 11AM & 11PM => 11AM & 23AM => 12 jam
+        }
+        var totaljam=keluar-masuk // //variable perhitungan durasi parkir
+        var biaya=totaljam*1000 // //variable perhitungan biaya parkir
+        // //hasil akhir tampilan yang di taruh di 'p' (paragraf)
+        document.getElementsByTagName('p')[0].innerHTML=`Lama Parkir ${totaljam} jam, biaya anda Rp.${biaya},00`
+    }
+</script>
+</html>

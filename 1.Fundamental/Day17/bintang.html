@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+        <style>
+            
+            div{border: thick double crimson;
+                height: auto;
+                width: fit-content;
+                padding: 10px;
+                text-align: left;
+                }
+                
+        </style>
+</head>
+<body>
+    <center>
+        <h1>Drawing Tools</h1>
+   
+
+            <div>
+                    <div>
+
+                        1.Persegi 
+                        <br> <br>
+                        2.Segitiga Siku rata kiri
+                        <br> <br>
+                        3.Segitiga Siku rata kanan
+                        <br><br>
+                        <!-- 4.Segitiga Sama kaki -->
+                        
+                    </div>
+            <br><br>
+            <div>
+
+                Jenis Bangunan: <br><br>
+                <input id="pilih"type="text" placeholder="masukkan pilihan anda"><br><br>
+                Ukuran : <br><br>
+                <input id="size" type="number" placeholder="masukkan ukurannya"><br><br><br>
+                <center>
+                <button onclick="bintang()">Submit</button>
+                </center>
+                <br><br>
+                <p></p>
+                
+            </div>
+
+            </div>
+
+    </center>
+    
+</body>
+    <script>
+        
+        const bintang=()=>{
+            
+        var pilihan=document.getElementById('pilih').value
+        var ukuran=document.getElementById('size').value
+
+            if (pilihan==1){
+                var output = "";
+                for (var i = 0; i < ukuran; i++) {
+                    for (j = 0; j < ukuran; j++) {
+                        output += "*";
+                     }
+                output += "<br>";
+                }
+
+            document.getElementsByTagName("p")[0].innerHTML = output;
+            }
+            
+            else if(pilihan==2){
+                let output=''
+                for(i=0;i<ukuran;i++){
+                    for(j=0;j<=i;j++){
+                    output+='*'
+                    }
+                output+='<br>'
+                }
+                document.getElementsByTagName('p')[0].innerHTML=output
+            }
+
+            else if(pilihan==3){
+                var output = "";
+                    for (var i = 0; i < ukuran; i++) {
+                        for (var x = ukuran; x > i; x--) {
+                            output += "&nbsp;&nbsp;&nbsp;";
+                        }
+                        for (x = 0; x <= i; x++) {
+                        output += "* ";
+                         }
+                        output += "<br>";
+                }
+                document.getElementsByTagName("p")[0].innerHTML = output;
+                }
+            // else if(pilihan==4){
+            //     var output = " ";
+            //     for (a = 0; a < ukuran; a++) {
+            //         for (b = a; b <= ukuran - 1; b++) {
+            //              output += " ";
+            //             }
+            //         for (c = 0; c <= a; c++) {
+            //              output += '*';
+            //             }
+            //         for (d = 0; d <= a - 1; d++) {
+            //         output += '*';
+            //         }
+            //     if (a < ukuran - 1) {
+            //         output += '<br>';
+            //         }
+            //     }
+            //     document.getElementsByTagName("p")[0].innerHTML = output;
+            // }
+
+            else {
+                alert('masukan pilihan yang tersedia')
+            }
+        }
+
+
+    </script>
+</html>

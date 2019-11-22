@@ -1,0 +1,8 @@
+var hariini= new Date() 
+console.log('Tanggal Hari ini '+hariini)
+var besok = new Date()
+besok.setDate(hariini.getDate()+1)
+console.log('Tanggal Besok '+besok)
+var kemarin= new Date()
+kemarin.setDate(hariini.getDate()-1)
+console.log('Tanggal Kemarin '+kemarin)

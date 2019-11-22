@@ -1,0 +1,98 @@
+<html>
+    <script>
+        
+// //=============LATIHAN MEMBUAT WEBSITE BELAJAR DAN BELANJA SEDERHANA===========================================
+        
+        alert('Welcome to our website')
+        do { // //buat loopingan pertama untuk menjalankan kode
+        var menuutama=prompt('Apa yang akan anda lakukan hari ini?:\n1.Belajar\n2.Belanja\n3.Exit') // //buat opsi menu
+        
+        if(menuutama==1){ // //akan menjalankan apabila yang dipilih menu 1
+            var konfirmasi1=true // //buat sebuah variable konfirmasi untuk loopingan while ke-1
+            while (konfirmasi1) { // //akan jalan apabila 'confirm' dipilih true
+            var menubelajar=prompt('Belajar apa:\n1.Luas Segitiga\n2.Luas Persegi\n3.Volume Balok')
+            if(menubelajar==1){
+                var alassegitiga = parseInt(prompt('Berapa alasnya? (dalam cm)')) // //buat variable prompt untuk menampung salah satu sisi
+                var tinggisegitiga = parseInt(prompt('Berapa tingginya? (dalam cm)'))
+                alert('Maka, luas segitiga ialah ' + (0.5*alassegitiga*tinggisegitiga) + 'cm^2') // //buat alert beserta rumusnya
+                }
+            else if(menubelajar==2){
+                var sisi = parseInt(prompt('Berapa sisinya? (dalam cm)'))
+                alert('Maka, luas persegi ialah ' + sisi*sisi + 'cm^2')
+                }
+            else if(menubelajar==3){
+                var sisi = parseInt(prompt('Berapa panjang? (dalam cm)'))
+                var lebar = parseInt(prompt('Berapa lebarnya? (dalam cm)'))
+                var tinggi = parseInt(prompt('Berapa tingginya? (dalam cm)'))
+                alert('Maka, volume balok ialah ' + (sisi*lebar*tinggi) + 'cm^3')
+                }
+                konfirmasi1=confirm('Mau lanjut belajar?') // //buat konfirmasi akhir. Jika true yang dpilih, maka akan masuk ke lopping while pertama
+            }
+        }
+
+        else if(menuutama==2){ // //akanjalan jika yang dipilih menu ke-2
+            var konfirmasi=true // //lagi, untuk loopingan ini buat sebuah konfirmasi true jika akan melanjutkan looping nanti
+            var hargatotal=0 // //buat variable total dengan angka 0, agar tidak terjadi penambahan angka di akhir
+            var berattotal=0    
+            while(konfirmasi){
+                var hargasatuan=0 // //begitupun juga untuk satuan. Buat variable dengan angka 0, agar tidak terjadi penambahan angka di akhir
+                var belanja = prompt('Jenis belanjaan? \n1.Ayam Rp10.000\n2.Sapi Rp20.000\n3.Salmon Rp30.000')
+                if(belanja==1){
+                    hargasatuan=10000 // //namun saat sudah memilih jenis apa, buat variable yang menjelaskan harganya
+                    var berat=parseInt(prompt('Mau beli berapa?')) // //untuk menampung angka kuantitas barang yang mau dibeli
+                    konfirmasi=confirm('Apakah anda mau belanja lagi?') // //jika yang dipilih true, akan masuk ke looping while menu utama ke-2
+                    if(konfirmasi){ // //namun sebelum masuk looping awal, akan muncul alert dengan notifikasi pembelian sementara
+                        hargatotal+=hargasatuan*berat
+                        alert('Saat ini total akhir anda Rp'+hargatotal)
+                    }else{ // //jika 'confirm' yang dipilih false, maka akan masuk ke else dengan memunculkan alert total akhir belanja. Dan pada akhirnya masuk ke looping menu utama
+                        hargatotal+=hargasatuan*berat
+                        alert('Terimakasih, total akhir anda Rp'+hargatotal)
+                    }
+                }
+                else if(belanja==2){
+                    hargasatuan=20000
+                    var berat=parseInt(prompt('Mau beli berapa?'))
+                    konfirmasi=confirm('Apakah anda mau belanja lagi?')
+                    if(konfirmasi){
+                        hargatotal+=hargasatuan*berat
+                        alert('Saat ini total akhir anda Rp'+hargatotal)
+                    }else{
+                        hargatotal+=hargasatuan*berat
+                        alert('Terimakasih, total akhir anda Rp'+hargatotal)
+                    }
+                }
+                else if(belanja==3){
+                    hargasatuan=30000
+                    var berat=parseInt(prompt('Mau beli berapa?'))
+                    konfirmasi=confirm('Apakah anda mau belanja lagi?')
+                    if(konfirmasi){
+                        hargatotal+=hargasatuan*berat
+                        alert('Saat ini total akhir anda Rp'+hargatotal)
+                    }else{
+                        hargatotal+=hargasatuan*berat
+                        alert('Terimakasih, total akhir anda Rp'+hargatotal)
+                    }
+                }  
+                else{ // //jika yang diinput tidak sesuai (bukan angka atau tidak ada dalam menu)
+                    alert('Anda salah input')
+                    konfirmasi2=confirm('Apakah anda ingin melanjutkan kegiatan belanja anda?') // //untuk menampung jawaban 'confirm'
+                    if(konfirmasi2){ // //jika yang dipilih true, akan masuk ke looping while menu utama pilihan
+                        alert('Mari kita lanjutkan')
+                    }
+                    else{ // //jika yang dipilih flase, akan masuk ke looping while menu utama
+                        alert('Terimakaih atas kunjungan anda.\nSampai berjumpa lagi')
+                    }
+                }
+            }
+        }
+
+        else if(menuutama==3){ // //jika opsi menu utama yang dipilih keluar
+            alert('Terimakasih atas kunjungan anda')
+        break // //gunakan break untuk mengakhiri looping yang ada
+        }
+        } while(true)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    </script>
+</html>

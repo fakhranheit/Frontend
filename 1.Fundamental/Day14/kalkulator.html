@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kalkulator</title>
+</head>
+<body>
+    <center>
+
+        <h1>Kalkulator</h1>
+        <br>
+        Masukkan Angka Pertama
+        <input type="text" id="input1">
+        <br><br>
+        Masukkan Angka Kedua
+        <input type="text" id="input2">
+        <br><br>
+        <button onclick="tambah()"> Tambah + </button>
+        <button onclick="kurang()"> Kurang - </button>
+        <button onclick="kali()"> Kali X </button>
+        <button onclick="bagi()"> Bagi / </button>
+        <button onclick="pangkat()"> Pangkat ^ </button>
+        <button onclick="modulus()"> Modulus % </button>
+        <h1></h1>
+
+    </center>
+<script>
+
+    //function start
+     const tambah=()=>{
+            var angka1= document.getElementById('input1').value
+            var angka2= document.getElementById('input2').value
+            var hasil= parseInt(angka1)+parseInt(angka2)
+            document.getElementsByTagName('h1')[1].innerHTML=`hasil ${angka1} + ${angka2} adalah ${hasil}`
+        }
+     const pangkat=()=>{
+            var angka1= document.getElementById('input1').value
+            var angka2= document.getElementById('input2').value
+            var hasil= Math.pow(angka1,angka2)
+            document.getElementsByTagName('h1')[1].innerHTML=`hasil ${angka1}^${angka2} adalah ${hasil}`
+        }
+     const kurang=()=>{
+            var angka1= document.getElementById('input1').value
+            var angka2= document.getElementById('input2').value
+            var hasil= parseInt(angka1)- parseInt(angka2)
+            document.getElementsByTagName('h1')[1].innerHTML=`hasil ${angka1} - ${angka2} adalah ${hasil}`
+        }
+        const kali=()=>{
+            var angka1= document.getElementById('input1').value
+            var angka2= document.getElementById('input2').value
+            var hasil= angka1*angka2
+            document.getElementsByTagName('h1')[1].innerHTML=`hasil ${angka1} X ${angka2} adalah ${hasil}`
+        }
+        const bagi=()=>{
+            var angka1= document.getElementById('input1').value
+            var angka2= document.getElementById('input2').value
+            var hasil= angka1/angka2
+            document.getElementsByTagName('h1')[1].innerHTML=`hasil ${angka1} / ${angka2} adalah ${hasil}`
+        }
+        const modulus=()=>{
+            var angka1= document.getElementById('input1').value
+            var angka2= document.getElementById('input2').value
+            var hasil= angka1%angka2
+            document.getElementsByTagName('h1')[1].innerHTML=`hasil ${angka1} % ${angka2} adalah ${hasil}`
+        }
+        //function end
+</script>
+</body>
+</html>

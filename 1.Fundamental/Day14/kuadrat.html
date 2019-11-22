@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuadrat</title>
+</head>
+<body>
+    <center>
+
+    <h1>Hitung Kuadrat</h1>
+    Masukkan angka :
+    <input type="text" name="" id="input">
+    <button onclick="kuadrat()">Hitung</button>
+    <h1></h1>
+    <script>
+        const kuadrat=()=>{
+            var angka= document.getElementById('input').value
+            var hasil= Math.pow(angka,2)
+            document.getElementsByTagName('h1')[1].innerHTML=`hasil ${angka}^2 adalah ${hasil}`
+        }
+    </script>
+
+    </center>
+</body>
+</html>

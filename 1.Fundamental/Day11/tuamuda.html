@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Masukkan nama kamu</h1>
+        <br>
+        <input id="nama" type="text" placeholder="masukkan namanya di sini">
+        <br><br>
+        <input id="usia" type="number" placeholder="masukkan usia anda">
+        <br>
+        <button onclick="klik()">klik di sini</button>
+        <h1></h1>
+    </center>
+</body>
+<script>
+    var klik=()=>{
+        var nama= document.getElementById('nama').value 
+        var usia= document.getElementById('usia').value
+        var tuaataumuda=''
+        if(usia>30){
+            tuaataumuda='tua'
+        }
+        else{
+            tuaataumuda='muda'
+        }
+        document.getElementsByTagName('h1')[0].innerHTML=`nama saya ${nama} saya ${tuaataumuda}`
+        document.getElementsByTagName('h1')[0].style.color='blue'
+        document.getElementsByTagName('h1')[1].innerHTML=`nama saya ${nama} saya ${tuaataumuda}`
+        document.getElementsByTagName('h1')[1].style.color='red'
+    }
+</script>
+</html>

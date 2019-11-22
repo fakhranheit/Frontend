@@ -1,0 +1,44 @@
+<!DOCTYPE html> <!--buat dalam format html5 (ketik langsung)-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tebak Biodata</title>
+</head>
+<body> <!--buat desaiin html dalam body, ditambah dengan center agar format penulisan di tengah-->
+    <center>
+        <h1> SELAMAT DATANG DI WEB TEBAK BIODATA</h1> <!--dengan h1, format tulisan akan lebih besar (heading)-->
+        <h2> SAYA BISA MENEBAK BIODATA ANDA</h2> <!--namun dengan h2, format tulisan akan mengecil-->
+        <h2> TAPI ISI DULU BIODATA MUDI BAWAH INI</h2>
+        <br><br> <!--untuk meberi jarak enter (break)-->
+        <input id="nama" type="text" placeholder="Your name here"> <!--dengan input, berarti kita akan memasukan/mengisi sebuah value-->
+        <br><br>
+        <input id="umur" type="number" placeholder="Your age here"> <!--id berarti nama kelas. Type berarti jenis datanya. Placeholder merupakan keterangan kotak nya (opsional)-->
+        <br><br>
+        <input type="radio" name="sex" value="Pria"> Pria <!--dengan menulis type = radio, maka bentuknya merupakan sebuah bulatan yang dipilih (klik)-->
+        <input type="radio" name="sex" value="Wanita"> Wanita
+        <br><br>
+        <button id='klikini' onclick="fungsiKu2(this.value)" > Click Here </button> <!--gunakan button untuk menampilkan hasil akhir (rumus terdapat di script). Gunakan onClick='' untuk mengambil fungsi yang akan dijalankan melalui proses script-->
+        <h1></h1> <!--buat heading kosong untuk menampung hasil akhir-->
+    </center>
+</body>
+<script> // //script sebagai tempat menampung rumus metode, dsb
+    function fungsiKu2(y) { // //buat sebuah function beserta properti dan parameternya hasil dari memencet button
+        var nama=document.getElementById('nama').value // //mengambil value nama dari input id=nama
+        var usia=document.getElementById('umur').value // //mengambil value usia dari input id=umur
+        var pilihansex='' // //buat variable gender/pilihansex dengan string kosong (karena opsi pemilihan merupakan checked input)
+        if(document.getElementsByName('sex')[0].checked){ // //jika yang di cek opsi pertama (array 0) atau bagian kiri (paling pertama)
+            pilihansex+='Pria' // //maka pilihansex adalah 'Pria'
+        }
+        else if(document.getElementsByName('sex')[1].checked){
+            pilihansex+='Wanita'
+        }
+        // //buat tampilan penulisan di html seperti di bawah ini. Jika h1 tidak diberi id, maka gunakan getElementsByTagName beserta urutan arraynya
+        document.getElementsByTagName('h1')[1].innerHTML=`Biar saya tebak....... <br> Nama kamu ${nama} <br> Umur mu ${usia} <br> Kelamin mu ${pilihansex}`
+        document.getElementsByTagName('h1')[1].style.color='green' // //untuk pewarnaan
+        document.getElementsByTagName('h1')[1].innerHTML=`Nama Saya ${nama} <br> Umur Saya ${tuaataumuda} <br> Kelamin Saya ${pilihansex}`
+        document.getElementsByTagName('h1')[1].style.color='red'
+    }
+</script>
+</html>

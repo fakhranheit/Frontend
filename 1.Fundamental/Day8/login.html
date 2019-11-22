@@ -1,0 +1,40 @@
+<html>
+    <script>
+
+    var datanama=['andi','budi','susi']
+
+    function checknama(namalogin){
+        
+        for(i=0;i<datanama.length;i++){
+            if (datanama[i]==namalogin){
+                return true
+            }
+        }
+        return false
+    }
+    alert('Selamat Datang')
+do{
+    var menu=prompt('1.login\n2.register\n3.exit')
+    if (menu==1){
+        var login=prompt('masukkan username')
+        if(checknama(login)){
+            alert('anda berhasil login')
+            break
+        }else{
+            alert('anda gagal login')
+        }
+    }
+    else if(menu==2){
+        var register=prompt('masukkan nama untuk register')
+        datanama.push(register)
+        alert('anda berhasil register')
+    }
+    else{
+        alert('sampai jumpa')
+        break
+    }
+
+}
+while (true)
+    </script>
+</html>

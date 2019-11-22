@@ -1,0 +1,119 @@
+<title>
+    Aplikasi belanja
+</title>
+<script>
+    //array 
+var produk=['Anggur','Apel','Jeruk']
+var harga=[1000,2000,3000]
+
+    //function untuk menampilkan array produk beserta harganya
+function printProduk(a){
+    var output=''
+    for(var i=0;i<a.length;i++){
+        output+=(i+1)+' '+produk[i]+'---->(Rp.'+harga[i]+',00)\n ' 
+    }
+    return output
+}
+
+
+    //Start
+alert('Selamat datang di toko kami')
+do{
+    var menuutama=prompt('Anda masuk sebagai:\n1.User\n2.Admin\n3.Exit')
+    var totalharga=0
+    if(menuutama==1){
+        var konfirmasiuser=true
+        var totalharga=0
+        var listbeli=' '
+        do{
+            var menuuser=prompt('mau beli apa? silahkan pilih angkanya\n'+printProduk(produk))
+                if(menuuser<produk.length){
+                    var barang=produk[menuuser-1]
+                    var price=harga[menuuser-1]
+                    var quantity=prompt('mau beli berapa kg?')
+                    alert('Harga untuk '+quantity+' kg '+barang+ ' Rp. '+(price*quantity))
+                }
+                totalharga+=(price*quantity)
+                listbeli+='- Anda membeli '+ quantity+' Kg '+barang+ ' dengan Harga '+(price*quantity)+'\n'
+                alert(listbeli+'\n******************************************\n\ntotal belanja yang harus anda bayar adalah Rp.'+ totalharga)
+                var konfirmasiuser=confirm('Apakah anda masih ingin berbelanja?')
+                }
+            
+               
+        while(konfirmasiuser)
+       
+
+      
+    }
+    else if(menuutama==2){
+        var menuadmin=prompt('1.Tambah Data\n2.Edit\n3.Delete\n4.Exit')
+        konfirmasiadmin=true
+        do{
+
+            if(menuadmin==1){
+            do{
+                var newprod=prompt('masukkan produk baru')
+                var newprice=prompt('masukkan harga')
+                produk.push(newprod)
+                harga.push(newprice)
+                alert(printProduk(produk))
+                var konfirmasi1=confirm('apakah anda ingin menambahkan barang lagi?')
+            }while(konfirmasi1)
+            break
+
+        }else if(menuadmin==2){
+            do{
+                var pilihan=parseInt(prompt(printProduk(produk)))
+                var updateproduk=prompt('masukkan nama produk untuk menggantikan '+produk[pilihan-1])
+                var updatebarang=confirm('yakin ngga mengganti produk dengan nama '+produk[pilihan-1]+' dengan '+updateproduk)
+                var updateharga=prompt('masukkan harga baru produk')
+                var hargaconfirm=confirm('yakin mengganti harga '+harga[pilihan-1]+' dengan '+updateharga)
+                
+                if(updatebarang&&updateharga){
+                    produk.splice(pilihan-1,1,updateproduk)
+                    harga.splice(pilihan-1,1,updateharga)
+                    alert(printProduk(harga))
+                }
+                
+                else{
+                    alert('tidak jadi update')
+                }
+                var konfirmasi2=confirm('mau update lagi?')
+            }while(konfirmasi2)
+            break
+
+        }
+        else if(menuadmin==3){
+           do{ var pilihan=parseInt(prompt(printProduk(produk)))
+            var deleteconfirm=confirm('apakah anda yakin ingin menghapus produk '+produk[pilihan-1]+'?')
+            if(deleteconfirm){
+                produk.splice(pilihan-1,1)
+                harga.splice(pilihan-1,1)
+                alert(printProduk(produk))
+            }
+            else{
+                alert('tidak jadi menghapus produk')
+            }
+
+            var konfirmasi3=confirm('mau delete lagi?')
+           }
+           while (konfirmasi3)
+           
+           
+        }
+        else if(menuadmin==4){
+            break
+        }
+        else{alert('masukkan pilihan sesuai menu')}
+        konfirmasiadmin=false
+        // else{
+
+        // }
+    }while(konfirmasiadmin)
+}
+    else{
+        alert('semoga kembali lagi')
+        break
+    }
+}while(true)
+</script>

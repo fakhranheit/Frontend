@@ -1,0 +1,108 @@
+<html>
+    <script>
+        
+        alert('Selamat datang di Website Kami')
+        var konfirmasiutama=true
+    while(konfirmasiutama=true)
+    {
+        
+        var menuutama=prompt('Menu\n1.Belajar \n2.Belanja\n3.Segitiga Bintang\n4.keluar')
+        if (menuutama==1){
+        var konfirmasi1=true
+        while(konfirmasi1=true){
+        var menubelajar=prompt('Belajar apa? \n1.Luas Segitiga\n2.Luas Persegi\n3.Volume Balok')
+
+                if(menubelajar==1)
+                {
+                    var alassegitiga=parseInt(prompt('masukkan nilai Alas'))
+                    var tinggisegitiga=parseInt(prompt('masukkan nilai tinggi'))
+                    alert('Luas segitiga adalah'+(0.5*alassegitiga*tinggisegitiga))
+                }
+                else if(menubelajar==2)
+                {
+                    var sisi=parseInt(prompt('masukkan nilai sisi'))
+                    alert('Luas persegi adalah'+(sisi*sisi)+'cm^2')
+                }
+                else if(menubelajar==3)
+                    {
+                    var panjangbalok=parseInt(prompt('masukkan panjang balok'))
+                    var lebarbalok=parseInt(prompt('masukkan lebar balok'))
+                    var tinggibalok=parseInt(prompt('masukkan tinggi balok'))
+                    alert('Volume balok adalah'+(panjangbalok*lebarbalok*tinggibalok+'cm^3'))
+                    }
+            konfirmasi1=confirm('ingin belajar lagi?')
+            }
+            konfirmasiutama=confirm('kembali ke menu utama?')
+        }
+        else if (menuutama==2)
+        {
+        var konfirmasi2=true
+        while (konfirmasi2=true)
+            {
+            var menumakanan=prompt('1.Ayam (Rp.10000/pcs\n2.Sapi(Rp.20000/pcs\n3.Salmon(Rp.30000/pcs)))')
+            var jumlahdaging=parseInt(prompt('ingin beli berapa potong?'))
+            if (menumakanan==1)
+                {
+                    var totalbelanja= jumlahdaging*10000
+                    alert('Total belanja anda adalah Rp.'+totalbelanja)
+                }
+            else if (menumakanan==2)
+                {
+                    var totalbelanja= jumlahdaging*20000
+                    alert('Total belanja anda adalah Rp.'+totalbelanja)
+                }
+            else if (menumakanan==3)
+                {
+                    var totalbelanja= jumlahdaging*30000
+                    alert('Total belanja anda adalah Rp.'+totalbelanja)
+                }
+        konfirmasi2=confirm('anda ingin belanja lagi?')
+            }
+        }
+        
+        else if(menuutama==3)
+        {
+            var jenissegitiga=prompt('masukkan jenis segitiga\n1.Segitiga Siku\n2.Segitiga Sama kaki')
+            if (jenissegitiga==1){
+                    var output='\n'
+                var tinggibintang =parseInt(prompt('masukkan tinggi bintang'))
+                
+                for(var i = 1; i<=tinggibintang;i++)
+                        {
+                    for(var  j=1;j<=i;j++)
+                        { output+='*'}
+                        output+='<br>'
+                        }
+                    document.write(output)   
+                break;
+                    }
+            else if(jenissegitiga==2){
+                    var output = '';
+            var tinggisegitiga=prompt('masukkan tinggi segitiga')
+            let z = '';
+            for (a = 0; a < tinggisegitiga; a++) {
+                for (b = a; b <= tinggisegitiga - 1; b++) {
+                    z += '_';
+                }
+                for (c = 0; c <= a; c++) {
+                    z += '*';
+                }
+                for (d = 0; d <= a - 1; d++) {
+                    z += '*';
+                }
+                if (a < tinggisegitiga - 1) {
+                    z += '<br>';
+                }
+                                                }
+                console.log(z);
+                document.write(z)                
+                break;
+            }
+        }
+    }
+    //biru=variabel
+    //kuning=function
+    </script>
+</html>
+
+

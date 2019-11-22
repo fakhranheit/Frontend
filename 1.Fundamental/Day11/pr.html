@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Website kami</title>
+</head>
+<body>
+    <center>
+        <h1>Masukkan biodata</h1>
+        Nama :
+        <input id="nama" type="text" placeholder="masukkan nama anda">
+        <br><br>
+        Usia :
+        <input id="usia" type="number" placeholder="masukkan usia anda">
+        <br><br><br>
+        <input id="sex" type="radio" name="sex" value="Pria"> Pria 
+        <input id="sex" type="radio" name="sex"value="Wanita"> Wanita
+        <br> <br>
+        <button onclick="biodata()">Submit</button>
+        <h1></h1>
+    </center>
+</body>
+    <script>
+    var biodata=()=>{
+        var nama= document.getElementById('nama').value
+        var usia=document.getElementById('usia').value
+        var keadaan=''
+        var sex=''
+    if (usia>30){
+            keadaan='tua'
+        }
+        else{
+            keadaan='muda'
+        }
+
+    if(document.getElementById('laki').checked==true){
+            sex='pria'
+        }
+
+    else if(document.getElementById('perempuan').checked==true){
+            sex='wanita'
+        }
+        document.getElementsByTagName('h1')[0].innerHTML=`Nama anda ${nama} anda ${keadaan} dan anda adalah ${sex} `
+    }
+    </script>
+</html>

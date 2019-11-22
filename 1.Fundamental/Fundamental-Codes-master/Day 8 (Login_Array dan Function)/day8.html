@@ -1,0 +1,41 @@
+<html>
+    <script>
+
+// //==========LATIHAN MEMBUAT HALAMAN LOGIN DENGAN NAMA DI DATABASE DAN REGISTRASI USER BARU====================
+function checknama(login){ // //buat function dengan variable dengan parameternya
+for(var i=0; i<datanama.length; i++){ // //buat template looping terlebih dahulu
+    if (datanama[i]==login) { // //kondisi akan berjalan apabila datanama (yang terdaftar dan yang telah di push) sama dengan login (yang diinput nanti oleh user)
+        return true // //looping ini berguna untuk memvalidasi data. Jika true maka looping akan berjalan
+        }
+    }
+    return false // //jika tidak sesuai/false, looping akan masuk ke else
+}
+
+var datanama = ['Ali', 'Baba'] // //sebelumnya buat variable data data nama yang sudah ada di database
+
+alert('Welcome to our website') // //buat alert sebagai pembuka
+        do{ // //melakukan sebuah looping
+            var menuutama = prompt('1.Login\n2.Register\n3.Exit') // //membuat pilihan menu
+            if (menuutama==1) {
+                var login = prompt('Masukan username anda') // //mengharuskan user input sebuah nama login
+                if (checknama(login)) { // //jika yang diinput sesuai dengan data (nama yang sudah ada maupun yang di register)
+                    alert('You are logged in') // //maka true, dan muncul sebuah alert
+                }
+                else{ // //jika yang diinput salah atau tidak sesuai
+                    alert('The username has not been registered')
+                }
+            }
+             else if (menuutama==2) { // //jika yang di pilih menu register
+                 var register = prompt('Ketik username') // //mengharuskan user memasukan sebuah string nama
+                 datanama.push(register) // //input yang telah dibuat user, akan di push (di masukan ke dalam array datanama)
+                 alert('Registrasi berhasil dengan nama ' + register) // //buat alert/notifikasi kepada user
+             }
+             else { // //jika yang dipilih menu 3
+                 alert('Thanks for coming')
+                 break // //selesai
+             }
+        } 
+        while (true) // //karena menggunakan looping 'do', maka buat kondisi while dalam true (sebagai syarat looping dengan 'do')
+
+    </script>
+</html>

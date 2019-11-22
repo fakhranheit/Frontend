@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Segitiga pascal</h1>
+        <div>
+            <input type="text" name="" id="jumlah"><br><br>
+            <button onclick="pascal()">Submit</button>
+            <p></p>
+        </div>
+
+    </center>
+</body>
+<script>
+
+
+    const pascal=()=> {
+
+    var n=document.getElementById('jumlah').value
+    var result = [];
+    result[0] = [1];
+    result[1] = [1, 1];
+    for (var row = 2; row < n; row++) {
+        result[row] = [1];
+        for (var i = 1; i <= row - 1; i++) {
+            result[row][i] = result[row - 1][i] + result[row - 1][i - 1];
+            result[row].push(1);
+        }
+    }
+    return document.getElementsByTagName('p')[0].innerHTML=result
+}
+for (var i = 0; i < pascal(10).length; i++) {
+    console.log(pascal(10)[i] + " ");
+}
+
+</script>
+</html>

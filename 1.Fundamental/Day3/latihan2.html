@@ -1,0 +1,30 @@
+<!-- <html>
+    <script>
+    var angka=prompt('masukkan angka anda')
+    if(angka%2===1)
+    {alert('angka '+angka+' adalah bilangan ganjil ')}
+    else
+    {
+    alert('angka '+angka+' adalah bilangan genap ')
+    }
+    </script>
+</html>
+         -->
+
+<html>
+    <script>
+    var datang=prompt('masukkan jam datang')
+    datang=parseInt(datang)
+    pulang=parseInt(pulang)
+
+    var pulang=prompt('masukkan jam pulang')
+    
+    if(pulang<datang)
+    {pulang+=12}
+    
+    var totaljam=pulang-datang
+    var biaya=totaljam*1000
+    
+    alert('anda parkir selama '+(totaljam)+'dan biayanya '+biaya)
+    </script>
+</html>

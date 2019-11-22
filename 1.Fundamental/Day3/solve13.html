@@ -1,0 +1,34 @@
+<html>
+    <script>
+    var berat=prompt('masukkan berat badan anda')
+        berat=parseInt(berat)
+    var tinggi=prompt('masukkan tinggi badan anda')
+        tinggi=parseInt(tinggi)
+    var tinggi=(tinggi/100)
+    var imt=parseInt(berat/(tinggi*tinggi))
+    
+    document.write('IMT anda adalah '+imt)
+    if(imt<18.5)
+    {
+        document.write('\nberat anda kurang')
+    }
+    else if(imt>=18.5 && imt<=24.9)
+    {
+       document.write('\nberat anda ideal')
+    }
+    else if(imt>=25.0 && imt<=29.9) 
+    {
+       document.write('\nberat anda berlebih')
+    }
+    else if(imt>=30.0 && imt<=39.9)
+    {
+        document.write('\nberat anda sangat berlebih')
+    }
+    else if(imt>39.9)
+    {
+        document.write('anda obesitas')
+    }
+    else
+        {document.write('bye')}
+</script>
+</html>

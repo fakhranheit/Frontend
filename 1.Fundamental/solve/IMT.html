@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table,tr,td{ border: 2px solid black;
+                    border-collapse: collapse;
+                    padding: 10px;
+                    height: fit-content;
+                    width: fit-content;
+                    text-align: justify;
+        }
+    </style>
+</head>
+<body>
+              <center>
+    <table>
+        <tr>
+            <td>
+                 <center>
+
+                     <h1>Menghitung indeks berat badan</h1>
+                     <br><br>
+                     Berat Badan:
+                     <input id="beratbdn" type="text" placeholder="berat dalam KG">
+                     <br><br>
+                     Tinggi Badan:
+                     <input id="tinggibdn" type="text" placeholder="tinggi dalam CM">
+                     <br><br>
+                     <button onclick="imt()">Hitung</button>
+                     <p></p>
+
+                 </center>   
+            </td>
+        </tr>
+    </table>
+
+                </center>
+
+</body>
+    <script>
+
+    const imt=()=>{
+
+        let beratbadan=document.getElementById('beratbdn').value
+        let tinggibadan=document.getElementById('tinggibdn').value
+        var output=''
+
+            output+=beratbadan/tinggibadan
+            console.log(output)
+        if(output<18.5){
+            document.getElementsByTagName('p')[0].innerHTML='Berat badan anda kurang'
+        }
+        else if(output>=18.5&&output<=24.9){
+            document.getElementsByTagName('p')[0].innerHTML='Berat badan anda Ideal'  
+        }
+        else if(output>=25&&output<=29.9){
+            document.getElementsByTagName('p')[0].innerHTML='Berat badan anda berlebih'
+        }
+        else if(output>=30&&output<=39.9){
+            document.getElementsByTagName('p')[0].innerHTML='Berat badan anda sangat berlebih'
+        }
+        else if(output>39.9){
+            document.getElementsByTagName('p')[0].innerHTML='Berat badan anda obesitas'
+        }
+
+
+    }
+    </script>
+</html>

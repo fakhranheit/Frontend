@@ -1,0 +1,59 @@
+<html>
+    <script>
+        while (true) {
+            var masuk=parseInt(prompt('Masukkan Jam Masuk! 1-12'))
+                if (masuk>=1 && masuk<=12) {
+                    //pengulangan=false
+                    break //untuk keluar dari looping & kalo pake ini tidak perlu declare variable sebelum while & syarat while diisi true
+                }else{
+                    alert('Salah input coy')
+                }
+        }
+        do {
+            var pengulangan=true
+            var ampmmasuk=prompt('1.AM \n2.PM')
+                if (ampmmasuk==1 || ampmmasuk==2) {
+                    pengulangan=false
+                }else{
+                    alert('Salah input cuy')
+                }
+        } while (pengulangan);
+
+
+        while (true) {
+            var keluar=parseInt(prompt('Masukkan Jam Keluar! 1-12'))
+                if (keluar>=1 && keluar<=12) {
+                    //pengulangan=false
+                    break //untuk keluar dari looping & kalo pake ini tidak perlu declare variable sebelum while & syarat while diisi true
+                }else{
+                    alert('Salah input cooy')
+                }
+        }
+        do {
+            var pengulangan=true
+            var ampmkeluar=prompt('1.AM \n2.PM')
+                if (ampmkeluar==1 || ampmkeluar==2) {
+                    pengulangan=false
+                }else{
+                    alert('Salah input cuuy')
+                }
+        } while (pengulangan);
+
+        if (masuk>keluar && ampmkeluar !== ampmmasuk) {
+                keluar+=12
+        }
+        else if (ampmkeluar==ampmmasuk && masuk>=keluar) {
+                keluar+=24
+        }
+
+        var lamaparkir=keluar-masuk
+        var biaya=0
+        if (lamaparkir<2) {
+            biaya=3000
+        }else{
+            biaya=((lamaparkir-1)*1000)+3000
+        }
+
+    alert('Anda Parkir Selama '+lamaparkir+' Jam'+'\nBiaya Parkir Anda: Rp'+biaya)
+    </script>
+</html>

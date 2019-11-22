@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BELAJAR BARENG</title>
+    <style>
+        tr, td, table{
+            border: 1px solid black;
+            height: fit-content;
+            width: fit-content;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+                                        <!--LAYOUT BODY-->
+
+<body>
+    <center>
+        <h1>Drawing Tools</h1>
+        <table>
+            <tr>
+                <td>
+                        <br><br>
+                        <select class="bangunan"> <!--buat layout select option-->
+                            <option>Persegi</option> <!--buat isi string dari option yang telah dibuat-->
+                            <option>Segitiga Siku Siku Rata Kiri</option>
+                            <option>Segitiga Siku Siku Rata Kanan</option>
+                            <option>Piramida</option>
+                            <option>Ketupat</option>
+                        </select>
+                        <br><br>
+                        <input type="number" placeholder="Jumlah Bidang" id="bidang"></input> <!--buat input untuk menampung value sebuah angka-->
+                        <br><br>
+                        <button onclick="submit()">Submit</button> <!--buat button untuk mengeksekusi inputan user-->
+                        <br><br>
+                        <p></p>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+                                        <!--SCRIPT-->
+
+<script>
+    const submit = () =>{ // //buat variable dengan function parameter kosong
+        var pilihanbangunan = document.getElementsByClassName('bangunan')[0].value // //buat variable yang mengambil hasil pilihan (select) user
+        var ukuranbidang = document.getElementById('bidang').value // //buat variable yang mengambil hasil input angka oleh user
+        if (pilihanbangunan == 'Persegi') { // //buat kondisi jika yang dipilih opsi select pertama
+            let output='' // //buat output dengan string kosong
+            for(i=0;i<ukuranbidang;i++){ // //looping akan berhenti apabila i (akumulasi) sudah lebih besar dari value angka yang diinput user
+                for(j=0;j<ukuranbidang;j++){ // //looping akan berhenti apabila j (akumulasi) sudah lebih besar dari value angka yang diinput user
+                    output+='*' // //tiap looping berjalan sesuai kondisi diatas. Jika sudah tidak memenuhi, maka akan turun ke bawah
+                }
+                output+='<br>' // //akan membuat penulisan enter jika kondisi looping selesai. Dan akan balik lagi ke looping for pertama
+            }
+            document.getElementsByTagName('p')[0].innerHTML = output // //mencetak hasil di paragraf array ke-0
+        }
+        else if (pilihanbangunan == 'Segitiga Siku Siku Rata Kiri') {
+            let output=''
+                for(i=0;i<ukuranbidang;i++){
+                for(j=0;j<=i;j++){
+                    output+='*'
+                }
+            output+='<br>'
+            }
+            document.getElementsByTagName('p')[0].innerHTML = output
+        }
+        else if (pilihanbangunan == 'Segitiga Siku Siku Rata Kanan') {
+            let output=''
+                for(i=0;i<ukuranbidang;i++){
+                    for(j=ukuranbidang; j>i; j--){
+                        output+='&nbsp;&nbsp;&nbsp;' // //karena ingin memberi space (agar rata ke kanan), buat &nbsp / spasi
+                    }
+                    for(j=0;j<=i;j++){
+                        output+='* '
+                    }
+            output+='<br>'
+            }
+            document.getElementsByTagName('p')[0].innerHTML = output
+        }
+        else if (pilihanbangunan == 'Piramida') {
+            output = ''
+            for (i = 0; i < ukuranbidang; i++) {
+                for (j = (ukuranbidang - 1); j > i; j--) {
+                    output += '  '
+                }
+                for (j = 0; j <= i; j++) {
+                    output += '*'
+                }
+                for (j = 1; j <= i; j++) {
+                    output += '*'
+                }
+                output += '<br>'
+            }
+            document.getElementsByTagName('p')[0].innerHTML = output
+        }
+        else if (pilihanbangunan == 'Ketupat') {
+            output = ''
+            for (i = 0; i < ukuranbidang; i++) {
+                for (j = (ukuranbidang - 1); j > i; j--) {
+                    output += '  '
+                }
+                for (j = 0; j <= i; j++) {
+                    output += '*'
+                }
+                for (j = 1; j <= i; j++) {
+                    output += '*'
+                }
+                output += '<br>'
+            }
+            for (i = 0; i < (ukuranbidang - 1); i++) {
+                for (j = 0; j < (i + 1); j++) {
+                    output += '  '
+                }
+                for (j = (ukuranbidang - 1); j > i; j--) {
+                    output += '*'
+                }
+                for (j = (ukuranbidang - 2); j > i; j--) {
+                    output += '*'
+                }
+                output += '<br>'
+            }
+            document.getElementsByTagName('p')[0].innerHTML = output
+        }
+}
+</script>
+</html>

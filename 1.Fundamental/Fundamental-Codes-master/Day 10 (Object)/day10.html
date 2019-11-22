@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Belajar DOM</title>
+        <body>
+            <center>
+                Nama: <input id='nama' type="text" placeholder="Tulis nama disini"/>
+                <br><br>
+                Usia:<input id='usia' type="number" placeholder="Masukkan usia"/>
+                <br><br>
+                <button onclick="fungsiKu()"> Coba klik! </button>
+                <p id="tes"> Hasil </p>
+            </center>
+        </body>
+    </head>
+    <script>
+        function fungsiKu() { // //buat sebuah function dengan value kosong
+            let inputnama = document.getElementById("nama").value // //mengambil value dari input nama
+            let inputusia=document.getElementById('usia').value // //mengambil value dari input usia
+            document.getElementById('tes').innerHTML = `nama saya ${inputnama} dan usia saya ${inputusia}` // //menampilkan hasil akhir dalam bentuk string di paragraf (<p>)
+            document.getElementById('usia').value=null
+            document.getElementById('nama').value=''
+        }
+    </script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="Masukan angka pertama" id="angka1"> <!--buat input untuk menampung value sebuah angka (angka pertama)-->
+    <br>
+    <input type="number" placeholder="Masukan angka kedua" id="angka2"> <!--buat input untuk menampung value sebuah angka (angka kedua)-->
+    <br>
+    <input type="button" value="Kali!" onclick="kali()"> <!--membuat button dengan perintah eksekusi perkalian, dst.-->
+    <input type="button" value="Bagi!" onclick="bagi()">
+    <input type="button" value="Tambah!" onclick="tambah()">
+    <input type="button" value="Kurang!" onclick="kurang()">
+    <input type="button" value="Pangkat!" onclick="pangkat()">
+    <input type="button" value="Modulus!" onclick="modulus()">
+    <p></p>
+</body>
+<script>
+    var angkaa = parseInt(document.getElementById('angka1').value) // //buat variable dahulu yang berguna untuk mengambil hasil input pertama
+    var angkab = parseInt(document.getElementById('angka2').value) // //buat variable dahulu yang berguna untuk mengambil hasil input kedua
+    const kali=()=>{ // //membuat function dengan parameter kosong
+        document.getElementsByTagName('p')[0].innerHTML=`Hasilnya ialah ${angkaa*angkab}` // //buat output yang ditampilkan di p (paragraf), sekaligus membuat rumusnya
+    }
+    const bagi=()=>{
+        document.getElementsByTagName('p')[0].innerHTML=`Hasilnya ialah ${angkaa/angkab}`
+    }
+    const tambah=()=>{
+        document.getElementsByTagName('p')[0].innerHTML=`Hasilnya ialah ${parseInt(angkaa+angkab)}`
+    }
+    const kurang=()=>{
+        document.getElementsByTagName('p')[0].innerHTML=`Hasilnya ialah ${parseInt(angkaa-angkab)}`
+    }
+    const pangkat=()=>{
+        document.getElementsByTagName('p')[0].innerHTML=`Hasilnya ialah ${Math.pow(angkaa,angkab)}`
+    }
+    const modulus=()=>{
+        document.getElementsByTagName('p')[0].innerHTML=`Hasilnya ialah ${angkaa%angkab}`
+    }
+
+</script>
+</html>

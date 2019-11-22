@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    tr,td,table{
+        border:1px solid grey;
+        border-collapse: collapse;
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+
+    <center>
+            <h1> Silahkan Berbelanja </h1>
+            <table>
+                <thead>
+                        <tr>
+                            <td>Nama Produk</td>
+                            <td>Harga</td>
+                            <td>Gambar Produk</td>
+                            <td>Action</td>
+                        </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+            <h3></h3>
+            <h4></h4>
+
+            <table>
+               <tbody>
+
+               </tbody>
+            </table>
+            <p id="uang"></p>
+            <p id="timer"></p>
+            <!-- <p id="tampilkan"></p> -->
+            
+         
+    </center>
+</body>
+<script>
+        class Produk{
+            constructor(a,b,c){
+                this.namaprod=a
+                this.harga=b
+                this.gambar=c
+            }
+        }
+            var listproduk=[
+            new Produk('Cheetos',4000,'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//86/MTA-3400167/cheetos_cheetos-40-gr-jagung-bakar_full02.jpg?output-format=webp'),
+            new Produk('Pringles',10000,'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//935/pringles_pringles-original-keripik-kentang_full02.jpg?output-format=webp'),
+            new Produk('Chitato',5000,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZUIvJYbJdfKyGRn10yDZZpWA08_p-PfE2I3U1DEHb9-AAn9Yt&s')
+        ]
+        
+        var listcart=[]
+
+        const printProduk=(a)=>{
+            var output=''
+                a.forEach((val,index)=>{
+                    console.log(val)
+                    console.log(index)
+                    output+=`<tr>
+                        <td>${val.namaprod}</td>
+                        <td>${val.harga}</td>
+                        <td><img src=${val.gambar}height="110px" width="110px"/></td>
+                        <td><button onclick="addToCart(${index})">add to cart</button></td>`
+                })
+                document.getElementsByTagName('tbody')[0].innerHTML=output
+        }
+        printProduk(listproduk)
+
+        printCart=(a)=>{
+            var output=''
+            var jumlah=0
+            var totalHarga=0
+            var bayar=true
+                a.forEach((val,index)=>{
+                    totalHarga+=val.harga
+                    output+=`<tr>
+                        <td>${val.namaprod}</td>
+                        <td>${val.harga}</td>
+                        <td><img src=${val.gambar}height="120px" width="110px"/></td>
+                        <td><button onclick="deleteCart(${index})">Delete from cart</button></td>
+                        </tr>`
+                        jumlah++
+                })
+                if(jumlah==0){
+                    bayar=true
+                    document.getElementsByTagName('h3')[0].innerHTML='Cart anda kosong'
+                    document.getElementsByTagName('h4')[0].innerHTML= ``
+                }
+                else{
+                    bayar=false
+                    document.getElementsByTagName('h3')[0].innerHTML=`jumlah barang belanjaan anda ${jumlah}`
+                    document.getElementsByTagName('h4')[0].innerHTML=`total harganya ${totalHarga}`
+                    
+                }
+                document.getElementsByTagName('tbody')[1].innerHTML=output
+
+                if (bayar){
+                    document.getElementsByTagName('p').innerHTML=''
+                    document.getElementById('uang').innerHTML=''
+                }
+                else{
+                    document.getElementById('uang').innerHTML='<input id="uangpelanggan"type="text" placeholder="masukkan nominal"> <button onclick="buttonBayar()">Bayar</button>'
+                }
+                totalbayar=+totalHarga
+                
+        }
+        printCart(listcart)
+
+        
+        const addToCart=(index)=>{
+            var addconfirm=confirm("Anda yakin ingin menambahkan ke cart anda?")
+            if(addconfirm){
+                listcart.push(listproduk[index])
+                printCart(listcart)
+            }          
+        }
+
+        const deleteCart=(index)=>{
+            var confHapus=confirm('apakah anda ingin mengeluarkan dari cart?')
+            if (confHapus){
+                listcart.splice(index,1)
+                printCart(listcart)
+            }
+            else{
+                printCart(listcart)
+            }
+        }
+
+        const buttonBayar=()=>{
+            var uangPelanggan=document.getElementById('uangpelanggan').value
+            var total=0
+            for(var i=0;i<listcart.length;i++){
+                total+=listcart[i]['harga']
+            }
+            if (uangPelanggan==total){
+                alert('uang anda pas')
+                
+            }
+            else if(uangPelanggan>total){
+                alert(`uang anda lebih, kembalian anda Rp.${uangPelanggan-total},00`)
+            }
+            else if(uangPelanggan<total){
+                alert(`uang anda kurang Rp.${total-uangPelanggan},00`)
+            }
+            listcart=[]
+            printCart(listcart)
+        } 
+
+        var time =30
+        var timer
+        function start(){
+            time=time+1
+            timer=setInterval(waktu,1000)
+        }
+
+        function waktu(){
+            time--
+            document.getElementById('timer').innerHTML=`waktu tersisa ${time}`
+            if(time<=0){
+                clearInterval(timer)
+                alert('Waktu checkout habis')
+                listcart=[]
+                printCart(listcart)
+                time=30
+            }
+        }
+    </script>
+</html>

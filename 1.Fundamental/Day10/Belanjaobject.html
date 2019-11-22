@@ -1,0 +1,56 @@
+<script>
+class Produk{
+    constructor(namaproduk,harga){
+        this.nmproduk=namaproduk,
+        this.hrg=harga
+    }
+}
+var produk=[
+            new Produk('Anggur',1000),
+            new Produk('Apel',20000),
+            new Produk('jeruk',5000)
+        ]
+class Cartuser{
+    constructor(namaproduk,harganya,qty){
+        this.nmproduk=namaproduk,
+        this.hrgnya=harganya,
+        this.qty=qty
+    }
+}
+var cart=[]
+
+//=================function start=================
+function printProd(a){
+    var output=' '
+    for(var i=0;i<a.length;i++){
+        output+=(i+1)+' '+prompt[i],nmproduk.toUppercase()+'Rp.'+produk[i].harga+',00\n'
+    }
+    return output
+}
+function printCart(cartuser){
+    var output=''
+    if(cart.length==0){
+        return ' Cart kosong. Mohon belanja terlebih dahulu'
+    }
+    for(var i=0;i<cartuser.length;i++){
+        output+=`${i+1}, ${cart[i].namaproduk} dengan harga Rp. ${cart[i].harganya},00 sebanyak ${cart[i].qty} dengan total harga ${cart[i].harganya*cart[i].qty}\n`
+    }
+    return output
+}
+
+function cartStruk(cartuser){
+    var output=printCart(cartuser)+'=========================\n'
+    var totalbelanjaanharga=0
+    for (var i=0;i<cartuser.length;i++){
+        totalbelanjaanharga+=(cart[i].qty*cart[i].harganya)
+    }
+    output+=`total belanjaan adalah Rp. ${totalbelanjaanharga},00`
+    return output
+}
+
+alert(printProd(produk))
+do{
+    var menuuutama=prompt('1.user\n2.admin\n3.exit')
+}
+while(menuuutama)
+</script>

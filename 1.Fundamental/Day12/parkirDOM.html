@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Parkir</h1>
+    <input type="number" placeholder="Jam Masuk" id="masuk">
+    <br>
+    <input type="radio" name="kondisi1"/> AM
+    <input type="radio" name="kondisi1"> PM
+    <br>
+    <input type="number" placeholder="jam keluar" id="keluar">
+    <br>
+    <input type="radio" name="kondisi2"> AM
+    <input type="radio" name="kondisi2"> PM 
+    <br> 
+    <input type="button" value="hitung" onclick="parkir()">
+    <p>Biaya parkir anda sebesar Rp. 0000,00</p>  
+</body>
+<script>
+    const parkir=()=>{
+        console.log('masuk')
+        var masuk=document.getElementById('masuk').value
+        masuk=parseInt(masuk)
+        var keluar=document.getElementById('keluar').value
+        keluar=parseInt(keluar)
+        var kondisi1=0
+        var kondisi2=0
+        if(document.getElementsByName('kondisi1')[0].checked){
+            kondisi1=1
+        }else{
+            kondisi1=2
+        }
+        if(document.getElementsByName('kondisi2')[0].checked){
+            kondisi2=1
+        }else{
+            kondisi2=2
+        }
+        if(masuk>=keluar&&kondisi1!==kondisi2){
+            keluar+=24
+        }else if(kondisi1!==kondisi2){
+            keluar+=12
+        }else if(kondisi1==kondisi2&&masuk>=keluar){
+            keluar+=24
+        }
+        var totaljam=keluar-masuk
+        var Biaya=totaljam*1000
+        document.getElementsByTagName('p')[0].innerHTML=`lama parkir ${totaljam} jam, biaya anda Rp. ${Biaya},00`
+    }
+</script>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            div {
+              width:300px;
+              height: 350px;
+            }
+            .garis_tepi1 {
+              border: 5px solid red;
+              padding: 10px;
+            }
+         </style>
+</head>
+<body>
+    <center>
+        <div class="garis_tepi1">
+
+                Biodata User
+                <br><br><br>
+                Nama:
+                <input type="text" placeholder="masukkan nama anda">
+                <br><br>
+                Usia:
+                <input type="text" placeholder="masukkan usia anda">
+                <br><br>
+                Jenis Kelamin:
+                <br><br>
+                Pria  <input type="radio" name="" >
+                Wanita<input type="radio" name="" > 
+                <br><br>
+                <button onclick="printTabel()">Submit</button>                                                 
+                    <br><br>
+               
+            <!-- Sorting button -->
+            Set berdasarkan Umur
+            <br><br>
+            <button>Nama</button>
+            <button>Umur</button>
+            <Button>Kelamin</Button>
+            <Button>Pekerjaan</Button>      
+     </div>
+     <table>
+        <thead>
+            <tbody>
+                    
+            </tbody>
+        </thead>
+     </table>
+<script>
+
+    class Biodata{
+
+        constructor(x,y,z){
+            this.nama=x
+            this.umur=y
+            this.kelamin=z
+        }
+
+    }
+
+    var listbiodata=[
+        new Biodata('fakhran','23','pria')
+    ]
+// function start
+
+    const printTabel=(x)=>{
+        var output=''
+        x.forEach((val,index)=>{
+            output+=`<tr>
+                        <td>${index+1}</td>
+                        <td>${nama}</td>
+                        <td>${usia}</td>
+                        <td>${kelamin}</td>
+                     </tr>`
+                    
+        })
+        document.getElementsByTagName('tbody')[0].innerHTML=output
+    }
+
+    printTabel(listbiodata)
+    const addTabel=()=>{
+        var namabaru=document.getElementsByName('tbody')
+        var usiabaru=namabaru[0].value
+        var kelaminbaru=namabaru[1].value
+        listbiodata.push(new Biodata(namabaru,usia,kelaminbaru))
+    }
+</script>
+
+
+
+    </center>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<html>
+    <script>
+    
+    // //==========BELANJA DENGAN MENGGUNAKAN KELAS OBJEK (!HANYA SAMPAI MENU USER SAJA)=================
+
+    //=============KELAS OBJEK===========================================================================
+    class Produk{
+            constructor(namaproduk,harga){
+                this.namaproduk=namaproduk
+                this.harga=harga
+            }
+        }
+    var produk=[
+                new Produk('Anggur', 1000),
+                new Produk('Apel', 2000), 
+                new Produk('Jeruk', 3000)
+            ]
+        class Cartuser{
+            constructor(namaproduk,hargaproduk,qty){
+                this.namaproduk=namaproduk
+                this.hargaproduk=hargaproduk
+                this.qty=qty
+            }
+        }
+    var cart = []
+    
+    //===============FUNCTION============================================================================
+    function printProd(a){
+        var output=''
+        for(var i=0;i<a.length;i++){
+            output+=(i+1)+' '+produk[i].namaproduk.toUpperCase()+' Rp.'+produk[i].harga+',00 \n'
+        }
+        return output
+    }
+    function printCart(cartuser){
+        var output = ''
+        if(cart.length==0){
+            return 'Cart Kosong'
+        }
+        for (var i=0;i<cartuser.length;i++) {
+        //   output += `Anda telah membeli ${i+1}. ${cart[i].namaproduk} dengan harga Rp. ${cart[i].hargaproduk},00 sebanyak ${cart[i].qty} dengan total harga Rp. ${cart[i].hargaproduk},00 sebanyak ${cart[i].qty} buah, dengan total akhir ${cart[i].hargaproduk*cart[i].qty}\n`
+        output+=`Anda telah membeli ${i+1} ${cart[i].namaproduk} dengan harga Rp. ${cart[i].hargaproduk},00 sebanyak ${cart[i].qty} dengan total harga ${cart[i].hargaproduk*cart[i].qty}\n`    
+        }
+        return output
+      }
+      function cartStruk (cartuser){
+        var output=printCart(cartuser)+'====================================\n'
+        var totalbelanjaanharga=0
+        for(var i = 0; i<cartuser.length ; i++){
+            totalbelanjaanharga+=(cart[i].qty*cart[i].hargaproduk)
+      }
+      output+=`Total Belanjaan anda adalah Rp. ${totalbelanjaanharga},00`
+      return output
+    }
+
+//=================LOOPING==============================================================================
+    alert('Selamat Datang di Website CV Buah Jaya') // //buat alert sebagai pembuka
+    do { // //lakukan looping do agar jalan sekali tanpa melihat kondisi
+        var menuutama=prompt('1.Menu User\n2.Menu Admin\n3.Keluar') // //buat pilihan menu
+        if(menuutama==1){ // //jika yang dipilih menu ke-1
+            do{ // //melakukan looping
+                var menuuser=prompt('1.Perlihatkan belanjaan\n2.Mulai belanja') // //membuat 2 opsi
+                if (menuuser==1){ // //jika dipilih opsi ke-1, maka akan muncul belanjaan (dengan kondisi terakhir barang yang telah dibel)
+                    alert(printCart(cart))
+                }
+                else{ // //masuk ke opsi ke-2
+                var konfirmasiuser = true // //buat variable konfirmasi keadaan true untuk opsi 'confirmation'
+                var pilih_belanja = prompt(printProd(produk)+'Mau pilih produk apa?') // //buat menu untuk user agar memilih sebuah opsi
+                var jumlah_belanja = parseInt(prompt('Mau beli berapa banyak?')) // //untuk menampung kuantitas barang yang akan user beli
+                var ada = false // //buat variable untuk memeriksa barang yang dipilih, adakah yang ganda (tambahan) atau tidak?
+                var index = 0 // //buat variable index (urutan array) dengan angka 0, agar nilai tidak bertambah
+                for(var i=0; i<cart.length; i++){ //gunakan for untuk ngecek, adakah produk yang sama?
+                    if (produk[pilih_belanja-1].namaproduk==cart[i].namaproduk) { // //buat kondisi. Apakah barang yang baru saja dibeli ada kesamaan (jenis buah) yang tadi sudah dibeli?
+                        ada=true // //jika ada,maka true
+                        index=1 // //serta nilai index menjadi 1 (urutan array)
+                        }
+                }
+                if(ada){ // //looping jika barang yang dibeli terdapat kesamaan dengan yang dibeli sebelumnya
+                    cart[index].qty+=jumlah_belanja // //maka cart (dengan nama buah sama) akan bertambah dengan yang baru saja dibeli
+                }
+                else{ // //jika yang dibeli merupakan produk baru
+                    cart.push(new Cartuser(produk[pilih_belanja-1].namaproduk, // //barang yang dibeli akan di push ke cartuser
+                    produk[pilih_belanja-1].harga, // //yang dimasukan berupavalue nama produk, harga produk tersebut, serta berapa jumlah yang dibeli
+                    jumlah_belanja))
+                }
+                konfirmasiuser=confirm('Mau belanja lagi?') // //buat sebuah konfirmasi kepada user
+                if (konfirmasiuser==false) { // //jika yang dipilih false
+                    alert(cartStruk(cart)) // //membuat alert berupa belanjaan terakhir
+                }
+            }
+        } while(konfirmasiuser) // //jika yang dipilih true, maka akan kembali ke looping awal
+    }
+        
+        else if(menuutama==2){
+            var konfirmasiadmin = true
+            do {
+                var menuadmin=prompt('1.Tambah Data\n2.Update Data\n3.Hapus Data\n4.Kembali ke Menu Utama')
+                if(menuadmin==1){
+                    do {
+                        var konfirmasi1 = true                        
+                        var newprod=prompt('Masukkan jenis buah baru!')
+                        var newprice=parseInt(prompt('Masukkan harga buah tersebut!')) 
+                        produk[namaproduk].push(newprod)
+                        produk[harga].push(newprice)
+                        alert(printProd(Produk))
+                        konfirmasi1=confirm('Apakah anda ingin menambah sebuah produk lagi?')
+                    }
+                    while (konfirmasi1)
+                }
+                else if(menuadmin==2){
+                    do {
+                        alert(printProd(Produk))
+                        var pilihan=parseInt(prompt(printProd(produk))+'\nPilih produk ') 
+                        var updateprod=prompt('Masukkan nama buah untuk menggantikan buah '+produk[pilihan-1])
+                        var updateconfirm=confirm('Apakah anda yakin dengan mengganti buah '+produk[pilihan-1]+' dengan '+updateprod + ' ? ')
+                        if(updateconfirm){
+                            produk.splice(pilihan-1,1,updateprod)
+                            alert(printProd(produk))
+                        }
+                        else{
+                            alert('Buah tidak di update')
+                        }
+                        var konfirmasi2=confirm('Apakah anda ingin melakukan update lagi?')
+                    } while (konfirmasi2);
+                }
+                else if(menuadmin==3){
+                    do{
+                        alert(printProd(produk))
+                        var pilihan2=parseInt(prompt(printProd(produk))+'\nPilih produk yang akan dihapus')
+                        var hapusconfirm=confirm('Apakah anda yakin akan menghapus buah ' +produk[pilihan2-1] + ' ? ')
+                        if (hapusconfirm) {
+                            produk.splice(pilihan2-1,1)
+                            harga.splice(pilihan2-1,1)
+                            alert(printProd(produk))
+                        } else {
+                            alert('Buah tidak di hapus')
+                        }
+                        var konfirmasi3=confirm('Apakah anda ingin menghapus produk lagi?')
+                    } while (konfirmasi3)
+                }
+                else{
+                    break
+                }
+            } while (true);
+        }
+        else{
+            alert('Sampai Jumpa Kembali')
+            break
+        }
+    } while (true);
+
+    </script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Selamat Datang di Purwa mall</h1>
+    </center>
+    Jam masuk:
+    <input id="masuk" type="number" placeholder="masukkan 1-24" >
+    <br><br>
+    Jam keluar:
+    <input id="keluar" type="number" placeholder="masukkan 1-24" >
+    <br><br><br>
+    Total:
+    <h3></h3>
+    <br><br>
+    <button onclick="parkir()">Proses</button>
+   
+</body>
+<script>
+   parkir=()=>{
+     var  masuk=parseInt(document.getElementById("masuk").value)
+     var keluar=parseInt(document.getElementById("keluar").value)
+     var harga= 3000
+    if(!(keluar%1==0)||!(masuk%1==0)){
+       document.getElementsByTagName('h3'[0]).innerHTML="salah input"
+    }
+    if(keluar<masuk){
+        keluar+=24
+    }
+    var total=(keluar-masuk)*harga
+    document.getElementsByTagName('h3')[0].innerHTML=`total parkir anda adalah ${total}`
+    }
+</script>
+</html>

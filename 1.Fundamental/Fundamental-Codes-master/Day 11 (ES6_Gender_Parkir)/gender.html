@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body> <!--buat desaiin html dalam body, ditambah dengan center agar format penulisan di tengah-->
+    <center>
+        <h1> Masukan Biodata </h1>
+        Nama:&nbsp;<input oninput="onNamechange()" type="text" id="nama" placeholder="Masukan Nama"/><br> <!--dengan input, berarti kita akan memasukan/mengisi sebuah value-->
+        Usia:&nbsp;<input type="number" id="usia" style="color: blue;" placeholder="Masukan Usia"/><br> <!--id berarti nama kelas. Type berarti jenis datanya. Placeholder merupakan keterangan kotak nya (opsional). Style color berarti warna tulisan(opsional)-->
+        <input type="radio" name="sex"/> Pria &nbsp;<input type="radio" name='sex'/> Wanita <br> <!--dengan menulis type = radio, maka bentuknya merupakan sebuah bulatan yang dipilih (klik)-->
+        <button id='tombol' onclick="onBtnResclick()"> klik </button><br> <!--gunakan button untuk menampilkan hasil akhir (rumus terdapat di script). Gunakan onClick='' untuk mengambil fungsi yang akan dijalankan melalui proses script-->
+        <h5></h5> <!--buat heading kosong untuk menampung hasil akhir-->
+        <h5></h5> <!--sementara ini heading kosong array ke-1-->
+    </center>
+</body>
+<script src="gender.js"></script> <!--membuat rumus serta metode di script js-->
+</html>

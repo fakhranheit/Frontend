@@ -87,6 +87,8 @@ const login=()=>{
             if(datauserlogin.role=='admin'){
                 // alert('halo admin')
                 PrintdataAdmin(listdata)
+                document.getElementsByTagName('div')[0].innerHTML=`    <input id="idLogin" type="text"><br><br>
+                                                                       <input id="pass" type="password"><br><br>`
                 document.getElementById('tombolLogout').innerHTML=`<button onclick="logout()">logout</button>`
                 document.getElementsByTagName('h2')[0].innerHTML=`selamat datang ${datauserlogin.username}`
             }else{

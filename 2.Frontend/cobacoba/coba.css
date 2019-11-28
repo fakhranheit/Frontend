@@ -1,0 +1,28 @@
+div {
+  border: 2px solid black;
+}
+
+.kepala-header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header-kanan {
+  margin-left: auto;
+}
+.header-kiri:hover {
+  color: crimson;
+  zoom: normal;
+  cursor: pointer;
+}
+
+.kanan:hover {
+  color: crimson;
+  zoom: normal;
+  cursor: pointer;
+}
+
+.coba {
+  align-content: center;
+  margin: auto;
+}

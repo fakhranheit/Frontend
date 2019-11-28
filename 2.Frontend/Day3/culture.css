@@ -1,60 +1,55 @@
-*{
-    padding: 0px;
-    margin:0
+* {
+  padding: 0px;
+  margin: 0;
 }
 
-.awal{
-    
-    background-color: #ff3b3b;
-    background-image: linear-gradient(0deg, #ff3b3b 0%, #313030 77%);
-    
+.awal {
+  background-color: #ff3b3b;
+  background-image: linear-gradient(0deg, #ff3b3b 0%, #313030 77%);
 
-    height: 10pc;
-    font-size: 500%;
-    text-align: center;
-    font-family: "New Rocker", cursive;
-    font-size: 35px;
-    -ms-text-size-adjust: auto;
+  height: 10pc;
+  font-size: 500%;
+  text-align: center;
+  font-family: "New Rocker", cursive;
+  font-size: 35px;
+  -ms-text-size-adjust: auto;
 
-    color: rgba(224, 209, 77, 0.82);
-    background-color: rgb(84, 84, 84);
-    text-shadow: rgb(0, 0, 0) 2px 2px 2px;
-  
+  color: rgba(224, 209, 77, 0.82);
+  background-color: rgb(84, 84, 84);
+  text-shadow: rgb(0, 0, 0) 2px 2px 2px;
 }
 
-.tengah{
-    display: flex;
+.tengah {
+  display: flex;
 }
 
-.tengah .sidebar{
-    background-color: #ff3b3b;
-    background-image: linear-gradient(270deg, #ff3b3b 0%, #313030 77%);
-    
-    
-    text-align: center;
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    height: 600px;
-    width: 15%
+.tengah .sidebar {
+  background-color: #ff3b3b;
+  background-image: linear-gradient(270deg, #ff3b3b 0%, #313030 77%);
+
+  text-align: center;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  height: 600px;
+  width: 15%;
 }
 
-.tengah .konten{
-    background-image: linear-gradient( 178.6deg, rgba(232,245,253,1) 3.3%, rgba(252,253,255,1) 109.6% );
+.tengah .konten {
+  background-image: linear-gradient(178.6deg, rgba(232, 245, 253, 1) 3.3%, rgba(252, 253, 255, 1) 109.6%);
 
-    width: 85%;
-    text-align: center;
-    
+  width: 85%;
+  text-align: center;
 }
 
-.akhir{
-    background-color: #ff3b3b;
-    background-image: linear-gradient(180deg, #ff3b3b 0%, #313030 77%);
-    text-align: center;
-    height: 100px;
+.akhir {
+  background-color: #ff3b3b;
+  background-image: linear-gradient(180deg, #ff3b3b 0%, #313030 77%);
+  text-align: center;
+  height: 100px;
 }
 
-.frame{
-    margin: 20px;
-    border:10px solid gold;
-    padding: 0px;
-    width: fit-content
+.frame {
+  margin: 20px;
+  border: 10px solid gold;
+  padding: 0px;
+  width: fit-content;
 }

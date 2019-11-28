@@ -1,0 +1,863 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--primary-font: 'Montserrat', sans-serif;
+	--secondary-font: 'Merriweather', serif;
+	--primary-color: #fff7f7;
+	--secondary-color: #dadada;
+	--third-color: #ff0140;
+}
+
+.container-fluid {
+	margin: 0;
+	padding: 0;
+}
+
+/* Header start */
+
+.container-header {
+	background-image: url(../images/background-img.jpg);
+	background-size: cover;
+	height: 350px;
+	opacity: 0.9;
+}
+
+.navbar {
+	background-color: transparent;
+	padding-top: 15px;
+}
+
+.navbar .navbar-brand img {
+	width: 200px;
+}
+
+.navbar .collapse {
+	position: absolute;
+	right: 0;
+}
+
+.navbar .collapse .navbar-nav {
+	margin-right: 20px;
+}
+
+.navbar .collapse .navbar-nav .nav-item {
+	color: var(--primary-color);
+	font-family: var(--secondary-font);
+	font-size: 0.8rem;
+	font-weight: bold;
+}
+
+.navbar .collapse .navbar-nav .nav-item:hover {
+	color: var(--secondary-color);
+}
+
+.navbar .collapse .navbar-nav .nav-sign {
+	border: 1px solid var(--primary-color);
+	border-radius: 30px;
+	width: 85px;
+}
+
+.navbar .collapse .navbar-nav .nav-sign .nav-link {
+	padding-left: 15px;
+}
+
+.navbar .navbar-search {
+	position: absolute;
+	margin-top: 135px;
+	left: 28%;
+	cursor: default;
+}
+
+.navbar .navbar-search .search-text {
+	font-size: 3rem;
+	color: var(--primary-color);
+	font-weight: 700;
+	padding-bottom: 30px;
+}
+
+.navbar .navbar-search .search-box {
+	display: flex;
+	background-color: white;
+	border-radius: 5px;
+	height: 65px;
+}
+
+.navbar .navbar-search .search-box i {
+	font-size: 25px;
+	position: relative;
+	margin: auto;
+	padding-left: 7px;
+}
+
+.navbar .navbar-search .search-box .form {
+	position: relative;
+	right: 20px;
+	font-size: 1px;
+	margin: auto;
+}
+
+.navbar .navbar-search .search-box .form input {
+	padding-bottom: 13px;
+}
+
+.navbar .navbar-search .search-box .form input::placeholder {
+	font-size: 1.1rem;
+}
+
+/* Header end */
+
+/* Section 1 start */
+
+.container-section-one {
+	margin: 20px 0;
+}
+
+.container-section-one .section-one-title p {
+	margin-top: 25px;
+	margin-bottom: -2px;
+	margin-left: 20px;
+	font-family: var(--secondary-font);
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+
+.container-section-one .section-one-carousel {
+	margin-top: -30px;
+	margin-left: -5px;
+}
+
+.container-section-one .section-one-carousel .carousel .carousel-inner {
+	padding-top: 60px;
+}
+
+.container-section-one
+	.section-one-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row {
+	margin-left: 10px;
+}
+
+.container-section-one
+	.section-one-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-4
+	.card {
+	width: 375px;
+	border: none;
+	overflow: hidden;
+	border-radius: 20px;
+}
+
+.container-section-one
+	.section-one-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-4
+	.card
+	.card-image {
+	overflow: hidden;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.container-section-one
+	.section-one-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-4
+	.card
+	.card-image
+	img {
+	max-width: 100%;
+	transition: transform 0.5s;
+}
+
+.container-section-one
+	.section-one-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-4
+	.card
+	.card-image
+	img:hover {
+	transform: scale(1.1);
+}
+
+.container-section-one
+	.section-one-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-4
+	.card
+	.card-body
+	.card-text {
+	font-family: var(--secondary-font);
+	font-size: 1rem;
+	font-weight: bold;
+	margin-left: -20px;
+}
+
+.container-section-one
+	.section-one-carousel
+	.carousel
+	.carousel-control-prev
+	.carousel-control-prev-icon {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 1px solid white;
+	background-color: black;
+}
+
+.container-section-one
+	.section-one-carousel
+	.carousel
+	.carousel-control-next
+	.carousel-control-next-icon {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 1px solid white;
+	background-color: black;
+}
+
+/* Section 1 end */
+
+/* Section 2 start */
+
+.container-section-two {
+	margin: 20px 0;
+}
+
+.container-section-two .section-two-title p {
+	margin-top: 25px;
+	margin-bottom: -2px;
+	margin-left: 20px;
+	font-family: var(--secondary-font);
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.container-section-two .section-two-carousel {
+	margin-top: -25px;
+	margin-left: -10px;
+}
+
+.container-section-two .section-two-carousel .carousel .carousel-inner {
+	padding-top: 60px;
+}
+
+.container-section-two
+	.section-two-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row {
+	margin: 0 15px;
+}
+
+.container-section-two
+	.section-two-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-3
+	.card {
+	width: 275px;
+	border: none;
+	overflow: hidden;
+}
+
+.container-section-two
+	.section-two-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-3
+	.card
+	.card-image {
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.container-section-two
+	.section-two-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-3
+	.card
+	.card-image
+	img {
+	max-width: 100%;
+	transition: transform 0.5s;
+}
+
+.container-section-two
+	.section-two-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-3
+	.card
+	.card-image
+	img:hover {
+	transform: scale(1.1);
+}
+
+.container-section-two
+	.section-two-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-3
+	.card
+	.card-body
+	.card-text {
+	margin-left: -20px;
+	font-family: var(--secondary-font);
+	font-size: 0.7rem;
+	color: var(--third-color);
+}
+
+.container-section-two
+	.section-two-carousel
+	.carousel
+	.carousel-control-prev
+	.carousel-control-prev-icon {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 1px solid white;
+	background-color: black;
+}
+
+.container-section-two
+	.section-two-carousel
+	.carousel
+	.carousel-control-next
+	.carousel-control-next-icon {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 1px solid white;
+	background-color: black;
+}
+
+/* Section 2 end */
+
+/* Section 3 start */
+
+.container-section-three {
+	margin: 20px 0;
+}
+
+.container-section-three .section-three-title p {
+	margin-top: 25px;
+	margin-bottom: -2px;
+	margin-left: 20px;
+	font-family: var(--secondary-font);
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.container-section-three .section-three-carousel {
+	margin-top: -30px;
+	margin-left: -10px;
+}
+
+.container-section-three .section-three-carousel .carousel .carousel-inner {
+	padding-top: 60px;
+}
+
+.container-section-three
+	.section-three-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row {
+	margin: 0 15px;
+}
+
+.container-section-three
+	.section-three-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-3
+	.card {
+	width: 275px;
+	border: none;
+	overflow: hidden;
+}
+
+.container-section-three
+	.section-three-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-3
+	.card
+	.card-image {
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.container-section-three
+	.section-three-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-3
+	.card
+	.card-image
+	img {
+	max-width: 100%;
+	transition: transform 0.5s;
+}
+
+.container-section-three
+	.section-three-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-3
+	.card
+	.card-image
+	img:hover {
+	transform: scale(1.1);
+}
+
+.container-section-three
+	.section-three-carousel
+	.carousel
+	.carousel-inner
+	.carousel-item
+	.row
+	.col-md-3
+	.card
+	.card-body
+	.card-text {
+	margin-left: -20px;
+	font-family: var(--secondary-font);
+	font-size: 0.7rem;
+	color: var(--third-color);
+}
+
+.container-section-three
+	.section-three-carousel
+	.carousel
+	.carousel-control-prev
+	.carousel-control-prev-icon {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 1px solid white;
+	background-color: black;
+}
+
+.container-section-three
+	.section-three-carousel
+	.carousel
+	.carousel-control-next
+	.carousel-control-next-icon {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 1px solid white;
+	background-color: black;
+}
+
+/* Section 3 end */
+
+/* Section 4 start */
+
+.container-section-four {
+	margin: 20px 0;
+}
+
+.container-section-four .section-four-title p:first-child {
+	margin-top: 25px;
+	margin-left: 20px;
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+
+.container-section-four .section-four-title p:last-child {
+	margin-left: 20px;
+	margin-top: -10px;
+	margin-bottom: 45px;
+	font-size: 1.15rem;
+}
+
+.container-section-four .section-four-row {
+	margin-top: -30px;
+	margin-left: 30px;
+}
+
+.container-section-four .section-four-row .row {
+	margin: 0 15px;
+}
+
+.container-section-four .section-four-row .row .row-left {
+	display: flex;
+}
+
+.container-section-four .section-four-row .row .row-left .col-md-5 {
+	margin-left: -40px;
+}
+
+.container-section-four .section-four-row .row .row-left .col-md-5 .card {
+	width: 550px;
+	border: none;
+	overflow: hidden;
+	cursor: default;
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-left
+	.col-md-5
+	.card
+	.card-image {
+	width: 390px;
+	height: 260px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-left
+	.col-md-5
+	.card
+	.card-image
+	img {
+	max-width: 100%;
+	max-height: 100%;
+	transition: transform 0.5s;
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-left
+	.col-md-5
+	.card
+	.card-image
+	img:hover {
+	transform: scale(1.1);
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-left
+	.col-md-5
+	.card
+	.card-body {
+	margin-left: -20px;
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-left
+	.col-md-5
+	.card
+	.card-body
+	.card-text {
+	font-family: var(--secondary-font);
+	font-size: 0.7rem;
+	color: var(--third-color);
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-left
+	.col-md-5
+	.card
+	.card-body
+	.card-sub-text {
+	position: relative;
+	margin-right: 150px;
+	font-family: var(--secondary-font);
+	font-size: 0.7rem;
+	font-weight: 600;
+}
+
+.container-section-four .section-four-row .row .row-right {
+	margin-left: -300px;
+}
+
+.container-section-four .section-four-row .row .row-right .col-md-2 .card {
+	width: 390px;
+	height: 135px;
+	border: none;
+	display: flex;
+	overflow: hidden;
+	cursor: default;
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-right
+	.col-md-2
+	.card
+	.card-image {
+	width: 182px;
+	height: 122px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-right
+	.col-md-2
+	.card
+	.card-image
+	img {
+	max-width: 100%;
+	transition: transform 0.5s;
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-right
+	.col-md-2
+	.card
+	.card-image
+	img:hover {
+	transform: scale(1.1);
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-right
+	.col-md-2
+	.card
+	.card-body {
+	margin-top: -140px;
+	margin-left: 175px;
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-right
+	.col-md-2
+	.card
+	.card-body
+	.card-text {
+	font-family: var(--secondary-font);
+	font-size: 0.7rem;
+	color: var(--third-color);
+}
+
+.container-section-four
+	.section-four-row
+	.row
+	.row-right
+	.col-md-2
+	.card
+	.card-body
+	.card-sub-text {
+	margin-top: -17px;
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+/* Section 4 end */
+
+/* Section 5 start */
+
+.container-section-five {
+	margin: 20px 0;
+}
+
+.container-section-five .section-five-title p {
+	margin-top: 25px;
+	margin-left: 20px;
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+
+.container-section-five .section-five-row .row {
+	width: 100%;
+}
+
+.container-section-five .section-five-row .row .col-md-4 {
+	margin-left: 20px;
+	margin-right: -30px;
+}
+
+.container-section-five .section-five-row .row .col-md-4 .card {
+	border: none;
+	overflow: hidden;
+	cursor: default;
+	width: 390px;
+	height: 400px;
+}
+
+.container-section-five .section-five-row .row .col-md-4 .card .card-image {
+	width: 390px;
+	height: 260px;
+	border-radius: 20px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.container-section-five .section-five-row .row .col-md-4 .card .card-image img {
+	width: 100%;
+	border-radius: 20px;
+	transition: transform 0.5s;
+}
+
+.container-section-five
+	.section-five-row
+	.row
+	.col-md-4
+	.card
+	.card-image
+	img:hover {
+	transform: scale(1.1);
+}
+
+.container-section-five .section-five-row .row .col-md-4 .card .card-body {
+	margin-left: -10px;
+}
+
+.container-section-five
+	.section-five-row
+	.row
+	.col-md-4
+	.card
+	.card-body
+	.card-text {
+	font-family: var(--secondary-font);
+	font-size: 0.7rem;
+	font-weight: 600;
+}
+
+.container-section-five
+	.section-five-row
+	.row
+	.col-md-4
+	.card
+	.card-body
+	.card-sub-text {
+	font-family: var(--secondary-font);
+	font-size: 0.7rem;
+	margin-top: -15px;
+}
+
+/* Section 5 end */
+
+/* Section 6 start */
+
+.container-section-six {
+	margin-top: 20px;
+	background-color: black;
+	cursor: default;
+}
+
+.container-section-six .first-row {
+	display: flex;
+	margin: 0 30px;
+}
+
+.container-section-six .first-row > div {
+	position: relative;
+	margin: 0 auto;
+	padding-top: 50px;
+	color: var(--primary-color);
+	font-size: 0.7rem;
+}
+
+.container-section-six .first-row > div p {
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+.container-section-six .first-row > div ul {
+	list-style: none;
+}
+
+.container-section-six .first-row > div ul li {
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+.container-section-six .first-row > div ul li:hover {
+	color: var(--secondary-color);
+}
+
+.container-section-six .first-row .row-four ul li i {
+	background-color: #fff;
+	color: black;
+	height: 25px;
+	width: 25px;
+	border-radius: 50%;
+	padding-top: 6px;
+	padding-left: 5px;
+	font-size: 0.8rem;
+	margin-right: 5px;
+}
+
+.container-section-six .second-row {
+	margin-top: 30px;
+	text-align: center;
+	margin-left: 120px;
+	display: flex;
+}
+
+.container-section-six .second-row .first-img img {
+	height: 38px;
+	margin: 3px 0;
+}
+
+.container-section-six .second-row .first-img img,
+.container-section-six .second-row .second-img img {
+	width: 130px;
+}
+
+.container-section-six .second-row p {
+	color: var(--primary-color);
+	font-size: 0.65rem;
+	padding-top: 25px;
+}
+
+/* Section 6 end */

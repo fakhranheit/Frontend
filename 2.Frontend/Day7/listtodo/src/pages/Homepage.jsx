@@ -10,7 +10,8 @@ const MySwal = withReactContent(Swal)
 class Home extends Component {
   state = {
     data: [],
-    bukaTutup: false
+    modalEdit: false,
+    indexedit:-1
   };
 
   componentDidMount() {
@@ -79,6 +80,37 @@ class Home extends Component {
       })
   }
 
+  onEditClick=(index)=>{
+    var editkegiatan = this.refs.editkegiatan.value
+    var edittanggal = this.refs.edittanggal.value
+    var data= this.state.data
+    var editstatus = 0
+
+    if(this.refs.status.value==='true'){
+      editstatus=true
+    }else{
+      editstatus=false
+    }
+
+    if(editkegiatan&&edittanggal&&editstatus){
+    data[index].kegiatan=editkegiatan
+    data[index].tanggal=edittanggal
+    data[index].status=editstatus
+      
+    this.setState({
+        data:data
+    })
+    }
+    else{
+      MySwal.fire(
+        'gagal',
+        'Tidak boleh kosong',
+        'error'
+    )
+    }
+    
+  }
+
   printTodo = () => {
     return this.state.data.map((val, index) => {
       return (
@@ -88,7 +120,7 @@ class Home extends Component {
           <td>{val.status ? "Sudah" : "Belum"}</td>
           <td>{val.tanggal}</td>
           <td>
-            <button className="btn btn-primary mr-4">Edit</button>
+            <button onClick={()=>this.setState({modalEdit:true,indexedit:index})} className="btn btn-primary mr-4">Edit</button>
             <button onClick={()=>this.onDeleteClick(index)}  className="btn btn-danger">Delete</button>
           </td>
         </tr>
@@ -112,8 +144,27 @@ class Home extends Component {
             <button className="btn btn-danger">Cancel</button>
           </ModalFooter>
         </Modal>
+
+        <Modal isOpen={this.state.modalEdit} toggle={() => this.setState({ modalEdit: false })}>
+          <ModalHeader>Edit ToDo</ModalHeader>
+          <ModalBody>
+              <input className="form-control mb-2 mr-3" placeholder="kegiatan" type="text" ref='editkegiatan'/>
+              <select className="form-control mb-2" ref="status">
+                  <option value="true" >Sudah</option>
+                  <option value="false"> Belum</option>
+              </select>
+              <input className="form-control" placeholder="tanggal" type="date" ref='edittanggal'/>
+          </ModalBody>
+          <ModalFooter>
+            <button className="btn btn-success" onClick={()=>this.onEditClick(this.state.indexedit)}  >Confirm</button>
+            <button className="btn btn-danger"onClick={()=>{this.setState({modalEdit:false})}} >Cancel</button>
+          </ModalFooter>
+        </Modal>
+
+        
+
         <div className="px-5 mx-5 my-5">
-          <Table>
+          <Table striped>
             <thead>
               <tr>
                 <th>No</th>
@@ -134,6 +185,8 @@ class Home extends Component {
             </button>
           </div>
         </div>
+
+        
       </div>
     );
   }

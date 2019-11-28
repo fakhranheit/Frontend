@@ -98,8 +98,16 @@ class Home extends Component {
     data[index].status=editstatus
       
     this.setState({
-        data:data
+        data:data,
+        modalEdit:false
     })
+    MySwal.fire(
+      'Berhasil',
+      'Data berhasil dimasukkan',
+      'success'
+    )
+
+
     }
     else{
       MySwal.fire(

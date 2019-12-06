@@ -1,0 +1,99 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123"
+    },
+    {
+      "id": 2,
+      "username": "dobleh",
+      "password": "qwe"
+    },
+    {
+      "id": 3,
+      "username": "jamal",
+      "password": "1234"
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "title": "Jumanji: The Next Level",
+      "sutradara": "Jake Kashdan",
+      "durasi": 121,
+      "jadwal": [
+        9,
+        12,
+        16
+      ],
+      "synopsys": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji,keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah.Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
+      "genre": "Action",
+      "produksi": "Columbia Pictures"
+    },
+    {
+      "id": 2,
+      "title": "Star Wars: The Rise of Skywalker",
+      "sutradara": "J.J. Abrams",
+      "durasi": 121,
+      "jadwal": [
+        9,
+        12,
+        16
+      ],
+      "synopsys": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157527080348609_397x583.jpg",
+      "genre": "Adventure",
+      "produksi": "Walt Disney Pictures"
+    },
+    {
+      "id": 3,
+      "title": "Ip Man 4: The Finale",
+      "sutradara": "Wilson Yip",
+      "durasi": 121,
+      "jadwal": [
+        9,
+        12,
+        16
+      ],
+      "synopsys": "Ip Man (Donnie Yen) datang ke Amerika Serikat untuk membantu muridnya, Bruce Lee (Kwok-Kwan Chan) yang mendapat diskriminasi rasial karena membuka sekolah seni bela diri Wing Chun di negeri Paman Sam tersebut.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157492651970791_287x421.jpg",
+      "genre": "Action",
+      "produksi": "Bullet Films, Mandarin Motion Pictures, Shanghai B"
+    },
+    {
+      "title": "kj nlj",
+      "image": "kjnnljn",
+      "synopsys": ";knm",
+      "sutradara": "lkqdk",
+      "genre": "q;lmd",
+      "durasi": "dwq;km",
+      "jadwal": [
+        12,
+        14,
+        16,
+        18
+      ],
+      "produksi": "dq;lkm",
+      "id": 4
+    },
+    {
+      "title": "acsanjlk",
+      "image": "nwjkln",
+      "synopsys": "njlwnwql",
+      "sutradara": " nmwklq",
+      "genre": "dwq",
+      "durasi": "dwq",
+      "jadwal": [
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "produksi": "dwq",
+      "id": 5
+    }
+  ]
+}

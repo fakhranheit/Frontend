@@ -16,6 +16,23 @@
       "password": "1234"
     }
   ],
+  "studios": [
+    {
+      "id": 1,
+      "nama": "studio 1",
+      "jumlahKursi": 260
+    },
+    {
+      "id": 2,
+      "nama": "studio 2",
+      "jumlahKursi": 240
+    },
+    {
+      "id": 3,
+      "nama": "studio 3",
+      "jumlahKursi": 200
+    }
+  ],
   "movies": [
     {
       "id": 1,
@@ -30,22 +47,9 @@
       "synopsys": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji,keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah.Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
       "genre": "Action",
+      "studioId": "2",
+      "trailer": "https://www.youtube.com/embed/rBxcF-r9Ibs",
       "produksi": "Columbia Pictures"
-    },
-    {
-      "id": 2,
-      "title": "Star Wars: The Rise of Skywalker",
-      "sutradara": "J.J. Abrams",
-      "durasi": 121,
-      "jadwal": [
-        9,
-        12,
-        16
-      ],
-      "synopsys": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
-      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157527080348609_397x583.jpg",
-      "genre": "Adventure",
-      "produksi": "Walt Disney Pictures"
     },
     {
       "id": 3,
@@ -60,40 +64,26 @@
       "synopsys": "Ip Man (Donnie Yen) datang ke Amerika Serikat untuk membantu muridnya, Bruce Lee (Kwok-Kwan Chan) yang mendapat diskriminasi rasial karena membuka sekolah seni bela diri Wing Chun di negeri Paman Sam tersebut.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157492651970791_287x421.jpg",
       "genre": "Action",
+      "studioId": "2",
+      "trailer": "https://www.youtube.com/embed/otI4pyQjb8w",
       "produksi": "Bullet Films, Mandarin Motion Pictures, Shanghai B"
     },
     {
-      "title": "kj nlj",
-      "image": "kjnnljn",
-      "synopsys": ";knm",
-      "sutradara": "lkqdk",
-      "genre": "q;lmd",
-      "durasi": "dwq;km",
+      "title": "Doraemon the Movie: Nobita's Treasure ",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157503171275932_287x421.jpg",
+      "synopsys": "Dalam kisah Doraemon kali ini, bersama Nobita, Shizuka, Gian, dan Suneo mereka memulai petualangan di Laut Karibia. Nobita adalah kapten kapal dan bertarung melawan musuhnya di atas kapal.\n\nSaat Shizuka diculik, dan badai menghambat perjalanan mereka. Mini-Dora membantu Nobita dan teman-teman. Dalam petualangan kali ini mereka menemukan sebuah pulau harta karun. Namun belakangan mereka menyadari itu bukanlah pulau biasa.",
+      "sutradara": "Kazuaki Imai",
+      "genre": "Fantasy",
+      "durasi": "120",
       "jadwal": [
         12,
         14,
-        16,
-        18
+        16
       ],
-      "produksi": "dq;lkm",
+      "produksi": "Shin Ei Animation",
+      "trailer": "https://www.youtube.com/embed/4TXbUvMHijc",
+      "studioId": "1",
       "id": 4
-    },
-    {
-      "title": "acsanjlk",
-      "image": "nwjkln",
-      "synopsys": "njlwnwql",
-      "sutradara": " nmwklq",
-      "genre": "dwq",
-      "durasi": "dwq",
-      "jadwal": [
-        12,
-        14,
-        16,
-        18,
-        20
-      ],
-      "produksi": "dwq",
-      "id": 5
     }
   ]
 }

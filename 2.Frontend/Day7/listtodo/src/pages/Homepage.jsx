@@ -36,6 +36,7 @@ class Home extends Component {
     } else {
       var newData = [...this.state.data, obj];
       this.setState({ data: newData, isOpen: false });
+      MySwal.fire("Berhasil", "Data berhasil dimasukkan", "success")
     }
   };
 
@@ -87,7 +88,8 @@ class Home extends Component {
         modalEdit: false
       });
       MySwal.fire("Berhasil", "Data berhasil dimasukkan", "success");
-    } else {
+    } 
+    else {
       MySwal.fire("gagal", "Tidak boleh kosong", "error");
     }
   };
@@ -147,12 +149,7 @@ class Home extends Component {
             </button>
             <button
               className="btn btn-danger"
-              onClick={() => {
-                this.setState({ modalEdit: false });
-              }}
-            >
-              Cancel
-            </button>
+              onClick={() => {this.setState({ modalEdit: false });}}>Cancel</button>
           </ModalFooter>
         </Modal>
 

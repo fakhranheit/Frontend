@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
-import './App.css';
-import Header from './components/Header'
-import Home from './pages/Homepage';
+import React from "react";
+import Header from "./components/Header";
+import Homepage from "./pages/Homepage";
+import "./App.css";
 
-class App extends Component {
-  state = {  }
-  render() { 
-    return ( 
-      <div>
-        <Header/>
-        <Home/>
-      </div>
-     );
-  }
+function App() {
+  return (
+    <div className="app">
+      <Header />
+      <Homepage />
+    </div>
+  );
 }
- 
+
 export default App;

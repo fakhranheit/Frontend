@@ -1,20 +1,9 @@
-import React, { useState } from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from 'reactstrap';
+import React, { useState } from "react";
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-
-const Header = (props) => {
+const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -25,35 +14,44 @@ const Header = (props) => {
         <NavbarBrand> IMAX </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="ml-5" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink href="/">Home</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                Options
+                Role
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu>
                 <DropdownItem>
-                  Option 1
+                  <Link to={"/manageAdmin"} className="menu">
+                    Admin &nbsp;
+                  </Link>
                 </DropdownItem>
                 <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
+                  <Link to={"/login"} className="menu">
+                    User
+                  </Link>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
+            {props.AuthLog === "" ? (
+              <NavItem>
+                <Link to={"/login"} className="menu" />
+              </NavItem>
+            ) : null}
+            {props.AuthLog === "" ? null : <NavItem className="mt-2">{props.AuthLog}</NavItem>}
           </Nav>
         </Collapse>
       </Navbar>
     </div>
   );
-}
+};
 
-export default Header;
+const MapstateToprops = state => {
+  return {
+    AuthLog: state.Auth.username
+  };
+};
+
+export default connect(MapstateToprops)(Header);

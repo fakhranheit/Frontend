@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nama": "Fakhran",
+      "hp": "028101201"
+    }
+  ],
+
+  "comments": [
+    {
+      "id": 1,
+      "comment": "hujatan",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "comment": "netizen",
+      "usersId": 1
+    }
+  ]
+}

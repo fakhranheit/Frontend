@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: slategrey;
 }
 
 .App-logo {
@@ -24,9 +25,7 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
+
 
 @keyframes App-logo-spin {
   from {
@@ -43,4 +42,40 @@
 
 .text{
   color: white;
+}
+
+.menu{
+  color: black;
+}
+
+.gambar:hover{
+  transform: scale(1.1);
+  border-radius: 10px;
+}
+.kartu{
+  border-radius: 10px;
+  overflow: hidden;
+}
+.gambar{
+  transition: 700ms;
+}
+.gambaar1{
+  border-radius: 10px;
+  overflow: hidden;
+}
+.readMore{
+  color: red;
+}
+.readMore:hover{
+  cursor: pointer;
+}
+
+.salah:hover{
+  cursor: pointer;
+}
+
+.trailer{
+  background-color: transparent;
+  height: 500px;
+  padding: 0;
 }

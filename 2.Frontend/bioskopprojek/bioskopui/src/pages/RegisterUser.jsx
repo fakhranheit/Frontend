@@ -6,6 +6,12 @@ class RegisterUser extends Component {
         loading:false
     }
 
+
+
+    onRegisterClick=()=>{
+        
+    }
+
     render() {
         return (
             <div>

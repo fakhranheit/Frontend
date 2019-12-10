@@ -10,7 +10,7 @@ const Header = props => {
 
   return (
     <div>
-      <Navbar className="warnaHeader" dark expand="md">
+      <Navbar style={{ height: "100px" }} className="warnaHeader" dark expand="md">
         <NavbarBrand> IMAX </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

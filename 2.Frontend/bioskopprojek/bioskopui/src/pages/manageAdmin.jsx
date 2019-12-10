@@ -16,6 +16,7 @@ class ManageAdmin extends Component {
     modaladd: false,
     modaledit: false,
     indexedit: 0,
+    iddelete:-1,
     jadwal: [12, 14, 16, 18, 20, 22]
   };
 
@@ -133,7 +134,6 @@ class ManageAdmin extends Component {
   }
 
   deleteMovie = index => {
-    var data = this.state.dataFilm;
     Myswal.fire({
       title: `Hapus  ${this.state.dataFilm[index].title}`,
       text: "You won't be able to revert this!",
@@ -144,20 +144,21 @@ class ManageAdmin extends Component {
       reverseButtons: true
     }).then(result => {
       if (result.value) {
-        Axios.delete(`${APIURL}movies/${index + 1}`, data)
-          .then(res => {
-            Axios.get(`${APIURL}movies`).then(res => {
-              this.setState({ dataFilm: res.data });
-            });
+        const datahapus=this.state.dataFilm
+        this.setState({iddelete:datahapus[index].id})
+        Axios.delete(`${APIURL}movies/${this.state.iddelete}`)
+        .then(()=>{
+          Axios.get(`${APIURL}movies`)
+          .then(res=>{
+            this.setState({dataFilm:res.data})
+          }).catch(err=>{
+            console.log(err)
           })
-          .catch(err => {
-            console.log(err);
-          });
+        })
+        console.log(this.state.iddelete)
+        datahapus.splice(index,1)
         Myswal.fire("Deleted!", "Your file has been deleted.", "success");
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
+      } else {
         Myswal.fire("Cancelled", "", "error");
       }
     });
@@ -237,7 +238,7 @@ class ManageAdmin extends Component {
         }
       }
     }
-    console.log(this.state.jadwal.indexOf(datafilmedit[2]));
+    // console.log(this.state.jadwal.indexOf(datafilmedit[2]));
     var checkbox = this.state.jadwal;
     var checkboxnew = [];
     checkbox.forEach(val => {

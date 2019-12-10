@@ -50,40 +50,6 @@
       "studioId": "2",
       "trailer": "https://www.youtube.com/embed/rBxcF-r9Ibs",
       "produksi": "Columbia Pictures"
-    },
-    {
-      "id": 3,
-      "title": "Ip Man 4: The Finale",
-      "sutradara": "Wilson Yip",
-      "durasi": 121,
-      "jadwal": [
-        9,
-        12,
-        16
-      ],
-      "synopsys": "Ip Man (Donnie Yen) datang ke Amerika Serikat untuk membantu muridnya, Bruce Lee (Kwok-Kwan Chan) yang mendapat diskriminasi rasial karena membuka sekolah seni bela diri Wing Chun di negeri Paman Sam tersebut.",
-      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157492651970791_287x421.jpg",
-      "genre": "Action",
-      "studioId": "2",
-      "trailer": "https://www.youtube.com/embed/otI4pyQjb8w",
-      "produksi": "Bullet Films, Mandarin Motion Pictures, Shanghai B"
-    },
-    {
-      "title": "Doraemon the Movie: Nobita's Treasure ",
-      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157503171275932_287x421.jpg",
-      "synopsys": "Dalam kisah Doraemon kali ini, bersama Nobita, Shizuka, Gian, dan Suneo mereka memulai petualangan di Laut Karibia. Nobita adalah kapten kapal dan bertarung melawan musuhnya di atas kapal.\n\nSaat Shizuka diculik, dan badai menghambat perjalanan mereka. Mini-Dora membantu Nobita dan teman-teman. Dalam petualangan kali ini mereka menemukan sebuah pulau harta karun. Namun belakangan mereka menyadari itu bukanlah pulau biasa.",
-      "sutradara": "Kazuaki Imai",
-      "genre": "Fantasy",
-      "durasi": "120",
-      "jadwal": [
-        12,
-        14,
-        16
-      ],
-      "produksi": "Shin Ei Animation",
-      "trailer": "https://www.youtube.com/embed/4TXbUvMHijc",
-      "studioId": "1",
-      "id": 4
     }
   ]
 }

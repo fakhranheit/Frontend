@@ -25,10 +25,13 @@ class MovieDetail extends Component {
     }
 
     onBeliTicketClick=()=>{
-        if(this.props.Authlog){
+        if(this.props.AuthLog){
+        
             this.setState({belitiketok:true})
+           
         }else{
             this.setState({notloginyet:true})
+            console.log(this.props.AuthLog)
         }   
     }
 
@@ -37,10 +40,10 @@ class MovieDetail extends Component {
             return <Redirect to={"/login"}/>
         }
         if(this.state.belitiketok){
-            return <Redirect to={'/belitiket'}/>
+            return <Redirect to={{pathname:'/belitiket',state:this.state.datadetailfilm}}/>
         }
         return ( 
-            <div>
+            <div style={{height:'100vh'}}>
                 <Modal isOpen={this.state.traileropen} size='lg' toggle={()=>this.setState({traileropen:false})} className='trailer' wrapClassName="trailer">
                     <ModalBody className="p-0 bg-transparent trailer">
                         <iframe width="100%" height="100%" title={this.state.datadetailfilm.title}  src={this.state.datadetailfilm.trailer} 
@@ -53,7 +56,7 @@ class MovieDetail extends Component {
                         anda belum login
                     </ModalBody>
                     <ModalFooter>
-                        <button>OK</button>
+                        <button onClick={<Redirect to={{pathname:'/login',state:this.state.datadetailfilm}} />}>OK</button>
                     </ModalFooter>
                 </Modal>
                 <div className="row p-3 mx-3 my-4">
@@ -80,7 +83,7 @@ class MovieDetail extends Component {
                             {this.state.datadetailfilm.synopsys}
                         </div>
                         <div className="mt-3">
-                            <button className="mr-3 btn btn-primary" onClick={()=>this.onBeliTicketClick}>Beli Tiket</button>
+                            <button className="mr-3 btn btn-primary" onClick={this.onBeliTicketClick}>Beli Tiket</button>
                             <button className="btn btn-outline-warning" onClick={()=>this.setState({traileropen:true})}>Trailer</button>
                         </div>
 

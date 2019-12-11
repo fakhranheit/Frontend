@@ -37,8 +37,8 @@ class Login extends Component {
             return <Redirect to={'/'}/>
         } 
         return (
-            <div>
-                <div className=' mt-3 d-flex justify-content-center'>
+            <div style={{height:'300vh'}}>
+                <div className='d-flex justify-content-center'>
                     <div style={{width:'500px',border:'1px solid black'}} className='rounded p-2'>
                         <h1 className>Login</h1>
                         <div className='p-1' style={{borderBottom:'1px solid black'}}>
@@ -55,7 +55,7 @@ class Login extends Component {
                             </div>
                     
                         }
-                        <div className='mt-4'>
+                        <div className='mt-4 '>
                             {this.state.loading?
                             <Loader
                                 type="puff"

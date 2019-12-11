@@ -24,6 +24,7 @@ class App extends Component {
     var id = localStorage.getItem("fakhran");
     Axios.get(`${APIURL}users/${id}`)
       .then(res => {
+        console.log(res.data)
         this.props.LoginSuccessAction(res.data);
       })
       .catch(err => {
@@ -37,13 +38,13 @@ class App extends Component {
       return <div>Loading....</div>;
     } else {
       return (
-        <div className="">
+        <div className="App">
           <Header />
           <Switch>
             <Route path={"/"} exact>
-              <WelcomePages />
-              <Home />
               <Slider />
+              <Home />
+              <WelcomePages />
             </Route>
             <Route exact path={"/manageAdmin"}>
               <ManageAdmin />

@@ -191,21 +191,24 @@ class ManageAdmin extends Component {
               </span>
             </TableCell>
           )}
-          <TableCell>{val.jadwal}</TableCell>
+          <TableCell align="center" style={{width:'60px'}}>{val.jadwal.map((val,index)=>{
+            return <button className="btn btn-primary my-1" style={{height:"2rem",lineHeight:"14px",cursor:"text"}}>{val}:00</button>
+          })}
+          </TableCell>
           <TableCell>{val.sutradara}</TableCell>
           <TableCell>{val.genre}</TableCell>
           <TableCell>{val.durasi}</TableCell>
           <TableCell>{val.produksi}</TableCell>
           <TableCell>
             <button
-              className="btn btn-outline-primary mr-3"
+              className="btn btn-primary mb-2"
               onClick={() => {
                 this.setState({ modaledit: true, indexedit: index });
               }}
             >
               Edit
             </button>
-            <button onClick={() => this.deleteMovie(index)} className="btn btn-outline-primary">
+            <button onClick={() => this.deleteMovie(index)} className="btn btn-primary">
               Delete
             </button>
           </TableCell>

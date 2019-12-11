@@ -44,13 +44,13 @@ class Home extends Component {
       } else {
         return (
           <div key={index} className="col-md-4 py-5 pr-3 pl-1 ">
-            <div className="card kartu " style={{ width: "100%" }}>
+            <div className="card kartu" style={{ width: "100%" }}>
               <div className="gambaar1">
                 <Link to={'./moviedetail/'+val.id} >
                   <img src={val.image} className="card-img-top kartu gambar" alt="..." />
                 </Link>
               </div>
-              <div className="card-body">
+              <div className="card-body App">
                 <h5 className="card-title">{val.title}</h5>
                 <p> </p>
                 <span

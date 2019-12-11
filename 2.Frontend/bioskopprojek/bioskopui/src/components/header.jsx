@@ -40,7 +40,13 @@ const Header = props => {
                 <Link to={"/login"} className="menu" />
               </NavItem>
             ) : null}
-            {props.AuthLog === "" ? null : <NavItem className="mt-2">{props.AuthLog}</NavItem>}
+            {props.AuthLog === "" ? null : 
+            <NavItem className="mt-2 user d-flex">
+              Selamat Datang {props.AuthLog}
+              <NavItem>
+              </NavItem>
+            </NavItem>
+            }
           </Nav>
         </Collapse>
       </Navbar>

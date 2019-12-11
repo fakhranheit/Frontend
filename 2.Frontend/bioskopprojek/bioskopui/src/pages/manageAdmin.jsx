@@ -58,7 +58,7 @@ class ManageAdmin extends Component {
       Myswal.fire("Failed", "Data harus diisi semua", "error");
     } else {
       
-      Axios.put(`${APIURL}movies/${id}`, data)
+      Axios.patch(`${APIURL}movies/${id}`, data)
       .then(res => {
         Axios.get(`${APIURL}movies`).then(res => {
           this.setState({ dataFilm: res.data });

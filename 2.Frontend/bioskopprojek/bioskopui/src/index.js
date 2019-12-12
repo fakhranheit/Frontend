@@ -7,9 +7,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import Reducers from "./redux/reducer";
-import { createStore } from "redux";
-
-const store = createStore(Reducers);
+import { createStore,applyMiddleware} from "redux";
+import thunk from 'redux-thunk'
+const store = createStore(Reducers,{},applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

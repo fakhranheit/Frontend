@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import {LogoutSuccessAction} from './../redux/actions'
+
+const logOutUser=()=>{
+  localStorage.clear()
+  LogoutSuccessAction()
+}
 
 const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,8 +49,13 @@ const Header = props => {
             {props.AuthLog === "" ? null : 
             <NavItem className="mt-2 user d-flex">
               Selamat Datang {props.AuthLog}
-              <NavItem>
-              </NavItem>
+            </NavItem>
+            }
+          </Nav>
+          <Nav>
+            {props.AuthLog ===""?null:
+            <NavItem className="logout">
+              <NavLink href="/" onClick={()=>logOutUser()} className="btn btn-dark">Logout</NavLink>
             </NavItem>
             }
           </Nav>
@@ -60,4 +71,4 @@ const MapstateToprops = state => {
   };
 };
 
-export default connect(MapstateToprops)(Header);
+export default connect(MapstateToprops,{LogoutSuccessAction})(Header);

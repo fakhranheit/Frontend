@@ -38,7 +38,7 @@ class App extends Component {
       return <div>Loading....</div>;
     } else {
       return (
-        <div className="App">
+        <div className="">
           <Header />
           <Switch>
             <Route path={"/"} exact>

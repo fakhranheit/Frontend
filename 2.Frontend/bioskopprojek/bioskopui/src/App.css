@@ -137,3 +137,11 @@ code {
 .logout{
   margin-left: 135vh;
 }
+
+.warnalink{
+  color: grey;
+}
+
+.warnalink:hover{
+color: white;
+}

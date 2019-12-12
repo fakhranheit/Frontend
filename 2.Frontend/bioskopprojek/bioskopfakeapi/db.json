@@ -3,17 +3,26 @@
     {
       "id": 1,
       "username": "admin",
-      "password": "123"
+      "password": "admin",
+      "role": "admin"
     },
     {
       "id": 2,
       "username": "dobleh",
-      "password": "qwe"
+      "password": "qwe",
+      "role": "user"
     },
     {
       "id": 3,
       "username": "jamal",
-      "password": "1234"
+      "password": "1234",
+      "role": "user"
+    },
+    {
+      "registrasiusername": "fakhran",
+      "registrasipassword": "1234",
+      "role": "user",
+      "id": 4
     }
   ],
   "studios": [
@@ -39,7 +48,11 @@
       "title": "Jumanji: The Next Level",
       "sutradara": "Jake Kashdan",
       "durasi": 121,
-      "jadwal": [9, 12, 16],
+      "jadwal": [
+        9,
+        12,
+        16
+      ],
       "synopsys": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji,keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah.Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
       "genre": "Action",
@@ -52,7 +65,11 @@
       "title": "Ip Man 4: The Finale",
       "sutradara": "Wilson Yip",
       "durasi": 121,
-      "jadwal": [9, 12, 16],
+      "jadwal": [
+        9,
+        12,
+        16
+      ],
       "synopsys": "Ip Man (Donnie Yen) datang ke Amerika Serikat untuk membantu muridnya, Bruce Lee (Kwok-Kwan Chan) yang mendapat diskriminasi rasial karena membuka sekolah seni bela diri Wing Chun di negeri Paman Sam tersebut.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157492651970791_287x421.jpg",
       "genre": "Action",
@@ -67,14 +84,17 @@
       "sutradara": "Kazuaki Imai",
       "genre": "Fantasy",
       "durasi": "120",
-      "jadwal": [12, 14, 16],
+      "jadwal": [
+        12,
+        14,
+        16
+      ],
       "produksi": "Shin Ei Animation",
       "trailer": "https://www.youtube.com/embed/4TXbUvMHijc",
       "studioId": "1",
       "id": 4
     }
   ],
-
   "orders": [
     {
       "id": 1,

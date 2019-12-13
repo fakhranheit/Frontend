@@ -145,3 +145,11 @@ code {
 .warnalink:hover{
 color: white;
 }
+
+.borderregis{
+  border: 1px solid black;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  margin-top: 20vh;
+}
+

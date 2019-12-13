@@ -39,7 +39,7 @@ class Login extends Component {
             return <Redirect to={'/'}/>
         } 
         return (
-            <div style={{height:'300vh'}}>
+            <div style={{height:'300vh',backgroundColor:''}}>
                 <div className='d-flex justify-content-center'>
                     <div style={{width:'500px',border:'1px solid black'}} className='rounded p-2'>
                         <h1 className>Login</h1>

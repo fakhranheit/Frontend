@@ -14,6 +14,7 @@ import Moviedetail from "./pages/movie-detail"
 import Belitiket from './pages/belitiket'
 import {connect} from 'react-redux'
 import {LoginSuccessAction} from './redux/actions'
+import Cart from './pages/cart'
 
 class App extends Component {
   state = {
@@ -38,7 +39,7 @@ class App extends Component {
       return <div>Loading....</div>;
     } else {
       return (
-        <div className="">
+        <div className="App">
           <Header />
           <Switch>
             <Route path={"/"} exact>
@@ -53,6 +54,7 @@ class App extends Component {
             <Route path="/belitiket" component={Belitiket}></Route>
             <Route path={"/login"} exact component={Login} />
             <Route path={"/RegisterUser"} exact component={RegisterUser} />
+            <Route path={'/cart'} component={Cart} exact/>
           </Switch>
         </div>
       );

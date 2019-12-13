@@ -3,6 +3,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Un
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { LogoutSuccessAction } from "./../redux/actions";
+import { FaCartPlus } from "react-icons/fa";
 
 const logOutUser = () => {
   localStorage.clear();
@@ -45,7 +46,12 @@ const Header = props => {
           </Nav>
           <Nav>
             {props.AuthLog === "" ? null : (
-              <NavItem className="logout">
+              <NavItem className="logout d-flex">
+                <NavLink>
+                  <Link to={'/cart'}>
+                    <FaCartPlus style={{ color: "white", fontSize: "20px" }} />
+                  </Link>
+                </NavLink>
                 <NavLink href="/" onClick={() => logOutUser()} className="btn btn-dark">
                   Logout
                 </NavLink>
